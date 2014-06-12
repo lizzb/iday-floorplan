@@ -8,12 +8,15 @@
 		-->
 		<!--script src="http://localhost:35729/livereload.js?snipver=1"></script-->
 
-<style>
+		<!- https://github.com/Hypercubed/angular-downloadsvg-directive/-->
 
-
-</style>
 
 	</head>	
+
+	
+  </head>
+  <!--body ng-app="example-app"-->
+
 	<body 
 		ng-app="app" 
 		ng-controller="AppCtrl"
@@ -29,6 +32,14 @@
 			</div>
 
 		    <div id="flowchart-controls">
+
+
+
+		    <button svg-download="#chartViewModel" title="mysvg">Download svg</button>
+		        <button svg-download title="mysvg">Download mysvg</button>
+
+
+
 
     			<button title="Add a new node to the chart" ng-click="addNewNode()">
     				Add Node
@@ -53,7 +64,7 @@
 				</button>
 
 				<!-- This custom element defines the flowchart. -->
-			    <flow-chart chart="chartViewModel"></flow-chart>
+			    <flow-chart id="chartViewModel" chart="chartViewModel"></flow-chart>
 		    </div>
 		</div>
 
@@ -71,7 +82,15 @@
 		<script src="flowchart/flowchart_viewmodel.js" type="text/javascript"></script>
 		<script src="flowchart/flowchart_directive.js" type="text/javascript"></script>
 
+		<script src="./angular-downloadsvg-directive.js"></script>
 		<!-- App code. -->
 		<script src="app.js"></script>
 	</body>
+
+
+<!--script>
+    //angular.module('example-app', ['hc.downloader']);
+    angular.module('app', ['hc.downloader']);
+  </script-->
+
 </html>
