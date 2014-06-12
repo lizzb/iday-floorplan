@@ -6,7 +6,33 @@
 		LiveReload support.
 		http://livereload.com/
 		-->
-		<script src="http://localhost:35729/livereload.js?snipver=1"></script>
+		<!--script src="http://localhost:35729/livereload.js?snipver=1"></script-->
+
+<style>
+
+#json-textarea {
+width: 35%; /*600px;*/
+float: left;
+}
+
+#json-textarea textarea {
+width: 100%;
+height: 100%;
+color: indigo;
+}
+
+#flowchart-controls {
+ 	/*margin-left: 600px;*/
+ 	margin-left: 35%;
+}
+
+.container {width: 100%; overflow: hidden;}
+
+/* is this a valid way to declare something?? */
+flow-chart { 
+	margin: 5px; width: 100%; height: 100%;
+}
+</style>
 
 	</head>	
 	<body 
@@ -17,60 +43,46 @@
 		ng-keyup="keyUp($event)"
 		>
 
-		<div style="width: 100%; overflow: hidden;">
-		    <div style="width: 600px; float: left;"> 
-				<textarea 
-					style="width: 100%; height: 100%;"
-					chart-json-edit
-					view-model="chartViewModel"
-					>
-				</textarea>
+		<div class="container">
+
+		    <div id="json-textarea"> 
+				<textarea chart-json-edit view-model="chartViewModel"></textarea>
 			</div>
-		    <div style="margin-left: 600px;">
-    			<button
-    				ng-click="addNewNode()"
-    				title="Add a new node to the chart"
-    				>
+
+		    <div id="flowchart-controls">
+
+    			<button title="Add a new node to the chart" ng-click="addNewNode()">
     				Add Node
 				</button>
-    			<button
+
+    			<button title="Add a new input connector to the selected node"
     				ng-click="addNewInputConnector()"
-    				ng-disabled="chartViewModel.getSelectedNodes().length == 0"
-    				title="Add a new input connector to the selected node"
-    				>
+    				ng-disabled="chartViewModel.getSelectedNodes().length == 0">
     				Add Input Connector
 				</button>
-    			<button
+
+    			<button title="Add a new output connector to the selected node"
     				ng-click="addNewOutputConnector()"
-    				ng-disabled="chartViewModel.getSelectedNodes().length == 0"
-    				title="Add a new output connector to the selected node"
-    				>
+    				ng-disabled="chartViewModel.getSelectedNodes().length == 0">
     				Add Output Connector
 				</button>
-    			<button
+
+    			<button title="Delete selected nodes and connections"
     				ng-click="deleteSelected()"
-    				ng-disabled="chartViewModel.getSelectedNodes().length == 0 && chartViewModel.getSelectedConnections().length == 0"
-    				title="Delete selected nodes and connections"
-    				>
+    				ng-disabled="chartViewModel.getSelectedNodes().length == 0 && chartViewModel.getSelectedConnections().length == 0">
     				Delete Selected
 				</button>
 
-				<!--
-				This custom element defines the flowchart.
-				-->
-			    <flow-chart
-		    		style="margin: 5px; width: 100%; height: 100%;"
-			      	chart="chartViewModel"
-			      	>
-			    </flow-chart>
+				<!-- This custom element defines the flowchart. -->
+			    <flow-chart chart="chartViewModel"></flow-chart>
 		    </div>
 		</div>
 
 		<link rel="stylesheet" type="text/css" href="app.css">
 
 		<!-- Library code. -->
-		<script src="lib/jquery-2.0.2.js" type="text/javascript"></script>
-		<script src="lib/angular.js" type="text/javascript"></script>
+		<script src="lib/jquery-2.0.2.js"></script>
+		<script src="lib/angular.js"></script>
 
 		<!-- Flowchart code. -->
 		<script src="debug.js" type="text/javascript"></script>
@@ -81,6 +93,6 @@
 		<script src="flowchart/flowchart_directive.js" type="text/javascript"></script>
 
 		<!-- App code. -->
-		<script src="app.js" type="text/javascript"></script>
+		<script src="app.js"></script>
 	</body>
 </html>
