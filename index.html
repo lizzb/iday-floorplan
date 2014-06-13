@@ -28,7 +28,55 @@
 				<textarea chart-json-edit view-model="chartViewModel"></textarea>
 			</div>
 
-		    <div id="flowchart-controls">
+			<div id="flowchart-controls">
+		    <em> Hold control key to select multiple, or drag select around elements </em>
+
+    			<!--button ng-click="addNewNode()"
+    				title="Add a new node to the chart">
+    				<br> Add Node <br><br>
+				</button-->
+
+				<button ng-click=""
+    				title="">
+    				<br> Add Company to Booth <br><br>
+				</button>
+
+				<button ng-click="addNewBoothRow()"
+    				title="">
+    				<br> Add Row of Booths <br><br>
+				</button>
+
+				<button ng-click="addNewBoothCol()"
+    				title="">
+    				<br> Add Column of Booths <br><br>
+				</button>
+
+				<button ng-click="addNewBooth()"
+    				title="Add a new booth to the chart">
+    				<br> Add Booth <br><br>
+				</button>
+
+				<!--
+    			<button ng-click="addNewInputConnector()"
+    				ng-disabled="chartViewModel.getSelectedNodes().length == 0"
+    				title="Add a new input connector to the selected node">
+    				<br> Add Input Connector <br><br>
+				</button>
+
+    			<button ng-click="addNewOutputConnector()"
+    				ng-disabled="chartViewModel.getSelectedNodes().length == 0"
+    				title="Add a new output connector to the selected node">
+    				<br> Add Output Connector <br><br>
+				</button>
+				-->
+
+    			<button ng-click="deleteSelected()"
+    				ng-disabled="chartViewModel.getSelectedNodes().length == 0 && chartViewModel.getSelectedConnections().length == 0"
+    				title="Delete selected nodes and connections">
+    				<br> Delete Selected <br><br>
+				</button>
+
+		    <!--div id="flowchart-controls">
 
     			<button title="Add a new node to the chart" ng-click="addNewNode()">
     				Add Node
@@ -50,7 +98,7 @@
     				ng-click="deleteSelected()"
     				ng-disabled="chartViewModel.getSelectedNodes().length == 0 && chartViewModel.getSelectedConnections().length == 0">
     				Delete Selected
-				</button>
+				</button-->
 
 				<!-- This custom element defines the flowchart. -->
 			    <flow-chart chart="chartViewModel"></flow-chart>
@@ -64,12 +112,12 @@
 		<script src="lib/angular.js"></script>
 
 		<!-- Flowchart code. -->
-		<script src="debug.js" type="text/javascript"></script>
-		<script src="flowchart/svg_class.js" type="text/javascript"></script>
-		<script src="flowchart/mouse_capture_service.js" type="text/javascript"></script>
-		<script src="flowchart/dragging_service.js" type="text/javascript"></script>
-		<script src="flowchart/flowchart_viewmodel.js" type="text/javascript"></script>
-		<script src="flowchart/flowchart_directive.js" type="text/javascript"></script>
+		<!--script src="debug.js"></script-->
+		<script src="flowchart/svg_class.js"></script>
+		<script src="flowchart/mouse_capture_service.js"></script>
+		<script src="flowchart/dragging_service.js"></script>
+		<script src="flowchart/flowchart_viewmodel.js"></script>
+		<script src="flowchart/flowchart_directive.js"></script>
 
 		<!-- App code. -->
 		<script src="app.js"></script>

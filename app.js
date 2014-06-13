@@ -54,10 +54,12 @@ angular.module('app', ['flowChart', ])
 	//
 	var nextNodeID = 10;
 
+	
+
 	//
 	// Setup the data-model for the chart.
 	//
-	var chartDataModel = {
+	/*var chartDataModel = {
 
 		nodes: [
 			{
@@ -135,6 +137,32 @@ angular.module('app', ['flowChart', ])
 
 
 		]
+	};*/
+	
+	var chartDataModel = {
+
+		nodes: [
+			{
+				name: "Example Node 1",
+				id: 0,
+				x: 0,
+				y: 0,
+				inputConnectors: [],
+				outputConnectors: [],
+			},
+
+			{
+				name: "Example Node 2",
+				id: 1,
+				x: 400,
+				y: 200,
+				inputConnectors: [],
+				outputConnectors: [],
+			},
+
+		],
+
+		connections: []
 	};
 
 	//
@@ -228,6 +256,104 @@ angular.module('app', ['flowChart', ])
 	};
 
 	//
+	// Selects the next booth id.
+	//
+	var nextBoothID = 2;
+
+
+	//
+	// Add a new booth node to the chart.
+	//
+	$scope.addNewBooth = function () {
+
+		var boothName = prompt("Enter a booth name:", "empty booth");
+		if (!boothName) { return; }
+
+		//
+		// Template for a new booth.
+		//
+		var newBoothDataModel = {
+			name: boothName,
+			id: "booth"+nextBoothID++,
+			x: 0,
+			y: 0,
+			inputConnectors: [],
+			outputConnectors: [],
+		};
+
+		$scope.chartViewModel.addNode(newBoothDataModel);
+	};
+
+
+	function createNewBooth(xpos, ypos, boothName) {
+
+		//
+		// Template for a new booth.
+		//
+		var newBoothDataModel = {
+			name: boothName,
+			id: "booth"+nextBoothID++,
+			x: xpos,
+			y: ypos,
+			inputConnectors: [],
+			outputConnectors: [],
+		};
+
+		$scope.chartViewModel.addNode(newBoothDataModel);
+	};
+
+	$scope.addNewBoothRow = function () {
+
+		var xOffset = 120 + 5; 	// NEED TO SET THESE TO NON-LOCAL VARS
+		var yOffset = 40 + 5;	// NEED TO SET THESE TO NON-LOCAL VARS
+
+		var numInput = prompt("Enter number of booths in this row:", "3");
+		if (!numInput) { return; }
+
+		var numBooths = parseInt(numInput);
+
+		for (var i = 0; i < numBooths; ++i) {
+			//addNewBooth();
+			createNewBooth(i*xOffset, yOffset, "unnamed");
+		}
+
+	};
+
+	$scope.addNewBoothCol = function () {
+
+		var xOffset = 120 + 5; 	// NEED TO SET THESE TO NON-LOCAL VARS
+		var yOffset = 40 + 5;	// NEED TO SET THESE TO NON-LOCAL VARS
+
+		var numInput = prompt("Enter number of booths in this col:", "5");
+		if (!numInput) { return; }
+
+		var numBooths = parseInt(numInput);
+
+		for (var i = 0; i < numBooths; ++i) {
+			//addNewBooth();
+			createNewBooth(xOffset, i*yOffset, "unnamed");
+		}
+
+	};
+
+
+	//
+	// Add an input connector to selected nodes.
+	//
+	$scope.addNewInputConnector = function () {
+		var connectorName = prompt("Enter a connector name:", "New connector");
+		if (!connectorName) { return; }
+
+		var selectedNodes = $scope.chartViewModel.getSelectedNodes();
+		for (var i = 0; i < selectedNodes.length; ++i) {
+			var node = selectedNodes[i];
+			node.addInputConnector({
+				name: connectorName,
+			});
+		}
+	};
+
+	//
 	// Add an input connector to selected nodes.
 	//
 	$scope.addNewInputConnector = function () {
@@ -250,9 +376,7 @@ angular.module('app', ['flowChart', ])
 	//
 	$scope.addNewOutputConnector = function () {
 		var connectorName = prompt("Enter a connector name:", "New connector");
-		if (!connectorName) {
-			return;
-		}
+		if (!connectorName) { return; }
 
 		var selectedNodes = $scope.chartViewModel.getSelectedNodes();
 		for (var i = 0; i < selectedNodes.length; ++i) {
