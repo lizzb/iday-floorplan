@@ -12,7 +12,18 @@ var flowchart = {
 	//
 	// Width of a node.
 	//
-	flowchart.nodeWidth = 250;
+	flowchart.nodeWidth = 120; //250;
+
+	flowchart.nodeRx = 4;
+	flowchart.nodeRy = 4;
+
+	flowchart.nodeColor1Offset = "0";
+	flowchart.nodeColor1Grad = "0.99609";
+	flowchart.nodeColor1Opacity = "56aaff";
+
+	flowchart.nodeColor2Offset = "0.63934";
+	flowchart.nodeColor2Opacity = "0.99219";
+	flowchart.nodeColor2Grad = "#d0d0e5";
 
 	//
 	// Amount of space reserved for displaying the node's name.
@@ -112,30 +123,22 @@ var flowchart = {
 		//
 		// Name of the node.
 		//
-		this.name = function () {
-			return this.data.name || "";
-		};
+		this.name = function () { return this.data.name || ""; };
 
 		//
 		// X coordinate of the node.
 		//
-		this.x = function () { 
-			return this.data.x;
-		};
+		this.x = function () { return this.data.x; };
 
 		//
 		// Y coordinate of the node.
 		//
-		this.y = function () {
-			return this.data.y;
-		};
+		this.y = function () { return this.data.y; };
 
 		//
 		// Width of the node.
 		//
-		this.width = function () {
-			return flowchart.nodeWidth;
-		}
+		this.width = function () { return flowchart.nodeWidth; }
 
 		//
 		// Height of the node.
@@ -149,32 +152,69 @@ var flowchart = {
 		}
 
 		//
+		// rx of the node.
+		//
+		this.rx = function () { return flowchart.nodeRx; }
+
+		//
+		// ry of the node.
+		//
+		this.ry = function () { return flowchart.nodeRy; }
+
+
+
+		this.nodeColor1Offset = function () { return flowchart.nodeColor1Offset; }
+		this.nodeColor1Grad = function () { return flowchart.nodeColor1Grad; }
+		this.nodeColor1Opacity = function () { return flowchart.nodeColor1Opacity; }
+	
+		this.nodeColor2Offset = function () { return flowchart.nodeColor2Offset; }
+		this.nodeColor2Opacity = function () { return flowchart.nodeColor2Opacity; }
+		this.nodeColor2Grad = function () { return flowchart.nodeColor2Grad; }
+
+/*
+		<stop 
+        offset="{{node.nodeColor1Offset()}}" 
+        stop-opacity="{{node.nodeColor1Opacity()}}" 
+        stop-color="{{node.nodeColor1Grad()}}"
+        />
+        <stop 
+        offset="{{node.nodeColor2Offset()}}" 
+        stop-opacity="{{node.nodeColor2Opacity()}}" 
+        stop-color="{{node.nodeColor2Grad()}}"
+        />
+
+        <stop 
+        offset="0" 
+        stop-opacity="0.99609" 
+        stop-color="#56aaff"
+        />
+        <stop 
+        offset="0.63934" 
+        stop-opacity="0.99219" 
+        stop-color="#d0d0e5"
+        />
+*/
+
+
+		//
 		// Select the node.
 		//
-		this.select = function () {
-			this._selected = true;
-		};
+		this.select = function () { this._selected = true; };
 
 		//
 		// Deselect the node.
 		//
-		this.deselect = function () {
-			this._selected = false;
-		};
+		this.deselect = function () { this._selected = false; };
 
 		//
 		// Toggle the selection state of the node.
 		//
-		this.toggleSelected = function () {
-			this._selected = !this._selected;
-		};
+		this.toggleSelected = function () { this._selected = !this._selected; };
 
 		//
 		// Returns true if the node is selected.
 		//
-		this.selected = function () {
-			return this._selected;
-		};
+		this.selected = function () { return this._selected; };
 
 		//
 		// Internal function to add a connector.

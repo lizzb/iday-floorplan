@@ -337,6 +337,30 @@ angular.module('app', ['flowChart', ])
 	};
 
 
+	$scope.addNewBoothGrid = function () {
+
+		var xOffset = 120 + 5; 	// NEED TO SET THESE TO NON-LOCAL VARS
+		var yOffset = 40 + 5;	// NEED TO SET THESE TO NON-LOCAL VARS
+
+		var numRowInput = prompt("Enter number of booths in a row:", "4");
+		if (!numRowInput) { return; }
+
+		var numColInput = prompt("Enter number of booths in a col:", "3");
+		if (!numColInput) { return; }
+
+		var numRows = parseInt(numRowInput);
+		var numCols = parseInt(numColInput);
+
+		for (var i = 0; i < numRowInput; ++i) {
+			//addNewBooth();
+			for (var j = 0; j < numColInput; ++j) {
+				createNewBooth(j*xOffset, i*yOffset, "unnamed");
+			}
+		}
+
+	};
+
+
 	//
 	// Add an input connector to selected nodes.
 	//
