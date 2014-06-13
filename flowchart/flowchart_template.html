@@ -20,9 +20,11 @@
     }
   </style>
 
-  <script type="text/ecmascript">
+  <!--script type="text/ecmascript">
     <![CDATA[
 
+THIS IS NOW BEING CALLED BUT IT DOESNT THINK IT IS DEFINED
+  
   function init(evt)
   {
       if ( window.svgDocument == null )
@@ -55,8 +57,12 @@
       tooltip_bg.setAttributeNS(null,"visibility","hidden");
   }
 
+  THIS IS NOW BEING CALLED BUT IT DOESNT THINK IT IS DEFINED
+      onmousemove="ShowTooltip(evt, 'Right box')"
+      onmouseout="HideTooltip(evt)"
+
     ]]>
-  </script>
+  </script-->
   <defs>
     <linearGradient 
       spreadMethod="pad" 
@@ -85,16 +91,14 @@
     >
     <rect 
       ng-attr-class="{{node.selected() && 'selected-node-rect' || (node == mouseOverNode && 'mouseover-node-rect' || 'node-rect')}}"
-      ry="{{node.ry()}}" 
-      rx="{{node.rx()}}" 
+      ng-attr-ry="{{node.ry()}}" 
+      ng-attr-rx="{{node.rx()}}" 
       x="0" 
       y="0" 
       ng-attr-width="{{node.width()}}" 
       ng-attr-height="{{node.height()}}" 
       fill="url(#nodeBackgroundGradient)"
-
-      onmousemove="ShowTooltip(evt, 'Right box')"
-      onmouseout="HideTooltip(evt)">
+      >
     </rect>
 
     <text

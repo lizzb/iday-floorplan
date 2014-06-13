@@ -24,30 +24,15 @@ angular.module('app', ['flowChart', ])
 //
 .controller('AppCtrl', ['$scope', 'prompt', function AppCtrl ($scope, prompt) {
 
-	//
-	// Code for the delete key.
-	//
-	var deleteKeyCode = 46;
+	var deleteKeyCode = 46;	// Code for the delete key.
 
-	//
-	// Code for control key.
-	//
-	var ctrlKeyCode = 65;
+	var ctrlKeyCode = 65;	// Code for control key.
 
-	//
-	// Set to true when the ctrl key is down.
-	//
-	var ctrlDown = false;
+	var ctrlDown = false;	// Set to true when the ctrl key is down.
 
-	//
-	// Code for A key.
-	//
-	var aKeyCode = 17;
+	var aKeyCode = 17;		// Code for A key.
 
-	//
-	// Code for esc key.
-	//
-	var escKeyCode = 27;
+	var escKeyCode = 27;	// Code for esc key.
 
 	//
 	// Selects the next node id.
@@ -55,92 +40,9 @@ angular.module('app', ['flowChart', ])
 	var nextNodeID = 10;
 
 	
-
-	//
-	// Setup the data-model for the chart.
-	//
-	/*var chartDataModel = {
-
-		nodes: [
-			{
-				name: "Example Node 1",
-				id: 0,
-				x: 0,
-				y: 0,
-				inputConnectors: [
-					{
-						name: "A",
-					},
-					{
-						name: "B",
-					},
-					{
-						name: "C",
-					},
-				],
-				outputConnectors: [
-					{
-						name: "A",
-					},
-					{
-						name: "B",
-					},
-					{
-						name: "C",
-					},
-				],
-			},
-
-			{
-				name: "Example Node 2",
-				id: 1,
-				x: 400,
-				y: 200,
-				inputConnectors: [
-					{
-						name: "A",
-					},
-					{
-						name: "B",
-					},
-					{
-						name: "C",
-					},
-				],
-				outputConnectors: [
-					{
-						name: "A",
-					},
-					{
-						name: "B",
-					},
-					{
-						name: "C",
-					},
-				],
-			},
-
-		],
-
-		connections: [
-			{
-				source: {
-					nodeID: 0,
-					connectorIndex: 1,
-				},
-
-				dest: {
-					nodeID: 1,
-					connectorIndex: 2,
-				},
-			},
-
-
-		]
-	};*/
-	
+	//var floorplanDataModel
 	var chartDataModel = {
-
+	
 		nodes: [
 			{
 				name: "Example Node 1",
@@ -210,51 +112,7 @@ angular.module('app', ['flowChart', ])
 		}
 	};
 
-	//
-	// Add a new node to the chart.
-	//
-	$scope.addNewNode = function () {
-
-		var nodeName = prompt("Enter a node name:", "New node");
-		if (!nodeName) {
-			return;
-		}
-
-		//
-		// Template for a new node.
-		//
-		var newNodeDataModel = {
-			name: nodeName,
-			id: nextNodeID++,
-			x: 0,
-			y: 0,
-			inputConnectors: [ 
-				{
-                    name: "X"
-                },
-                {
-                    name: "Y"
-                },
-                {
-                    name: "Z"
-                }			
-			],
-			outputConnectors: [ 
-				{
-                    name: "1"
-                },
-                {
-                    name: "2"
-                },
-                {
-                    name: "3"
-                }			
-			],
-		};
-
-		$scope.chartViewModel.addNode(newNodeDataModel);
-	};
-
+	
 	//
 	// Selects the next booth id.
 	//
@@ -360,6 +218,93 @@ angular.module('app', ['flowChart', ])
 
 	};
 
+/*
+	var createConnectorsViewModel = function (connectorDataModels, x, parentNode) {
+		var viewModels = [];
+
+		if (connectorDataModels) {
+			for (var i = 0; i < connectorDataModels.length; ++i) {
+				var connectorViewModel = 
+					new flowchart.ConnectorViewModel(connectorDataModels[i], x, flowchart.computeConnectorY(i), parentNode);
+				viewModels.push(connectorViewModel);
+			}
+		}
+
+		return viewModels;
+	};
+
+*/
+
+		$scope.addBoothsFromList = function () {
+
+			// companies
+		var companyNameIDs = [];
+		companyNameIDs.push("3m");
+		companyNameIDs.push("accenture");
+		companyNameIDs.push("alcatel-lucent");
+		companyNameIDs.push("boeing");
+		companyNameIDs.push("fenwal");
+
+		
+
+
+			//for (var compIdIndex = 0; compIdIndex < this.nodes.length; ++compIdIndex) {
+
+			
+				/*var node = this.nodes[nodeIndex];
+				if (!node.selected()) {
+					// Only retain non-selected nodes.
+					newNodeViewModels.push(node);
+					newNodeDataModels.push(node.data);
+				}
+				else {
+					// Keep track of nodes that were deleted, so their connections can also
+					// be deleted.
+					deletedNodeIds.push(node.data.id);
+				}*/
+
+		//for (var compIdIndex = 0; compIdIndex < companyNameIDs.length; ++compIdIndex) {
+			//}
+
+
+		var xOffset = 120 + 5; 	// NEED TO SET THESE TO NON-LOCAL VARS
+		var yOffset = 40 + 5;	// NEED TO SET THESE TO NON-LOCAL VARS
+
+		/*
+		var numRowInput = prompt("Enter number of booths in a row:", "4");
+		if (!numRowInput) { return; }
+
+		var numColInput = prompt("Enter number of booths in a col:", "3");
+		if (!numColInput) { return; }
+
+
+		var numRows = parseInt(numRowInput);
+		var numCols = parseInt(numColInput);
+		*/
+
+		var numRows = 4; //companyNameIDs.length % 2;
+		var numCols = 3; //companyNameIDs.length;
+
+		var compIdIndex = 0;
+
+		// make sure if you dont have evenly filled rows itll be okay
+
+		//for (var compIdIndex = 0; compIdIndex < companyNameIDs.length; ++compIdIndex)
+
+
+
+		for (var i = 0; i < numRows; ++i) {
+			//addNewBooth();
+			for (var j = 0; j < numCols && compIdIndex < companyNameIDs.length; ++j) {
+				createNewBooth(j*xOffset, i*yOffset, companyNameIDs[compIdIndex]);
+				++compIdIndex;
+			}
+		}
+
+		
+	};
+
+
 
 	//
 	// Add an input connector to selected nodes.
@@ -425,3 +370,137 @@ angular.module('app', ['flowChart', ])
 	$scope.chartViewModel = new flowchart.ChartViewModel(chartDataModel);
 }])
 ;
+
+
+
+
+
+
+//
+	// Setup the data-model for the chart.
+	//
+	/*var chartDataModel = {
+
+		nodes: [
+			{
+				name: "Example Node 1",
+				id: 0,
+				x: 0,
+				y: 0,
+				inputConnectors: [
+					{
+						name: "A",
+					},
+					{
+						name: "B",
+					},
+					{
+						name: "C",
+					},
+				],
+				outputConnectors: [
+					{
+						name: "A",
+					},
+					{
+						name: "B",
+					},
+					{
+						name: "C",
+					},
+				],
+			},
+
+			{
+				name: "Example Node 2",
+				id: 1,
+				x: 400,
+				y: 200,
+				inputConnectors: [
+					{
+						name: "A",
+					},
+					{
+						name: "B",
+					},
+					{
+						name: "C",
+					},
+				],
+				outputConnectors: [
+					{
+						name: "A",
+					},
+					{
+						name: "B",
+					},
+					{
+						name: "C",
+					},
+				],
+			},
+
+		],
+
+		connections: [
+			{
+				source: {
+					nodeID: 0,
+					connectorIndex: 1,
+				},
+
+				dest: {
+					nodeID: 1,
+					connectorIndex: 2,
+				},
+			},
+
+
+		]
+	};*/
+
+	//
+	// Add a new node to the chart.
+	//
+	/*$scope.addNewNode = function () {
+
+		var nodeName = prompt("Enter a node name:", "New node");
+		if (!nodeName) {
+			return;
+		}
+
+		//
+		// Template for a new node.
+		//
+		var newNodeDataModel = {
+			name: nodeName,
+			id: nextNodeID++,
+			x: 0,
+			y: 0,
+			inputConnectors: [ 
+				{
+                    name: "X"
+                },
+                {
+                    name: "Y"
+                },
+                {
+                    name: "Z"
+                }			
+			],
+			outputConnectors: [ 
+				{
+                    name: "1"
+                },
+                {
+                    name: "2"
+                },
+                {
+                    name: "3"
+                }			
+			],
+		};
+
+		$scope.chartViewModel.addNode(newNodeDataModel);
+	};*/
+

@@ -16,7 +16,7 @@ var flowchart = {
 
 	flowchart.nodeRx = 4;
 	flowchart.nodeRy = 4;
-
+	/*
 	flowchart.nodeColor1Offset = "0";
 	flowchart.nodeColor1Grad = "0.99609";
 	flowchart.nodeColor1Opacity = "56aaff";
@@ -24,6 +24,7 @@ var flowchart = {
 	flowchart.nodeColor2Offset = "0.63934";
 	flowchart.nodeColor2Opacity = "0.99219";
 	flowchart.nodeColor2Grad = "#d0d0e5";
+	*/
 
 	//
 	// Amount of space reserved for displaying the node's name.
@@ -161,8 +162,9 @@ var flowchart = {
 		//
 		this.ry = function () { return flowchart.nodeRy; }
 
+//flowchart.nodeRx
 
-
+		/*
 		this.nodeColor1Offset = function () { return flowchart.nodeColor1Offset; }
 		this.nodeColor1Grad = function () { return flowchart.nodeColor1Grad; }
 		this.nodeColor1Opacity = function () { return flowchart.nodeColor1Opacity; }
@@ -170,7 +172,7 @@ var flowchart = {
 		this.nodeColor2Offset = function () { return flowchart.nodeColor2Offset; }
 		this.nodeColor2Opacity = function () { return flowchart.nodeColor2Opacity; }
 		this.nodeColor2Grad = function () { return flowchart.nodeColor2Grad; }
-
+		*/
 /*
 		<stop 
         offset="{{node.nodeColor1Offset()}}" 

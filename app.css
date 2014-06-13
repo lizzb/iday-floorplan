@@ -17,6 +17,22 @@ Generic reset.
 
 /*
 Styles for nodes and connectors.
+
+
+<rect 
+      ng-attr-class="{{node.selected() && 'selected-node-rect' || (node == mouseOverNode && 'mouseover-node-rect' || 'node-rect')}}"
+      ry="{{node.ry}}" 
+      rx="{{node.rx}}" 
+      x="0" 
+      y="0" 
+      ng-attr-width="{{node.width()}}" 
+      ng-attr-height="{{node.height()}}" 
+      fill="url(#nodeBackgroundGradient)"
+
+      <!--onmousemove="ShowTooltip(evt, 'Right box')"
+      onmouseout="HideTooltip(evt)">--> >
+    </rect>
+
 */
 
 .node-rect {
