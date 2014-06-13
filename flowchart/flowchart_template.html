@@ -4,6 +4,59 @@
   ng-mousedown="mouseDown($event)"
   ng-mousemove="mouseMove($event)"  
   >
+    <style>
+    .caption{
+  font-size: 14px;
+  font-family: Georgia, serif;
+    }
+    .tooltip{
+  font-size: 12px;
+    }
+    .tooltip_bg{
+  fill: white;
+  stroke: black;
+  stroke-width: 1;
+  opacity: 0.85;
+    }
+  </style>
+
+  <script type="text/ecmascript">
+    <![CDATA[
+
+  function init(evt)
+  {
+      if ( window.svgDocument == null )
+      {
+    svgDocument = evt.target.ownerDocument;
+      }
+
+      tooltip = svgDocument.getElementById('tooltip');
+      tooltip_bg = svgDocument.getElementById('tooltip_bg');
+
+  }
+
+//http://www.petercollingridge.co.uk/book/export/html/437
+
+  function ShowTooltip(evt, mouseovertext)
+  {
+      tooltip.setAttributeNS(null,"x",evt.clientX+11);
+      tooltip.setAttributeNS(null,"y",evt.clientY+27);
+      tooltip.firstChild.data = mouseovertext;
+      tooltip.setAttributeNS(null,"visibility","visible");
+
+      tooltip_bg.setAttributeNS(null,"x",evt.clientX+8);
+      tooltip_bg.setAttributeNS(null,"y",evt.clientY+14);
+      tooltip_bg.setAttributeNS(null,"visibility","visibile");
+  }
+
+  function HideTooltip(evt)
+  {
+      tooltip.setAttributeNS(null,"visibility","hidden");
+      tooltip_bg.setAttributeNS(null,"visibility","hidden");
+  }
+
+    ]]>
+  </script>
   <defs>
     <linearGradient 
       spreadMethod="pad" 
@@ -39,8 +92,9 @@
       ng-attr-width="{{node.width()}}" 
       ng-attr-height="{{node.height()}}" 
       fill="url(#nodeBackgroundGradient)"
-      >
 
+      onmousemove="ShowTooltip(evt, 'Right box')"
+      onmouseout="HideTooltip(evt)">
     </rect>
 
     <text
@@ -95,6 +149,12 @@
         ng-attr-cy="{{connector.y()}}"
         />
     </g>
+
+      <rect class="tooltip_bg" id="tooltip_bg"
+      x="0" y="0" rx="4" ry="4"
+      width="55" height="17" visibility="hidden"/>
+  <text class="tooltip" id="tooltip"
+      x="0" y="0" visibility="hidden">Tooltip</text>
   </g>
 
   <g>
