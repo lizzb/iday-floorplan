@@ -18,6 +18,9 @@
   stroke-width: 1;
   opacity: 0.85;
     }
+
+        .boothId {font-size: 11px;}
+        .compId {font-size: 14px;}
   </style>
 
   <!--script type="text/ecmascript">
@@ -101,7 +104,16 @@ THIS IS NOW BEING CALLED BUT IT DOESNT THINK IT IS DEFINED
       >
     </rect>
 
-    <text
+
+    <text class="boothId"
+      ng-attr-x="{{node.width()/2}}"
+      y="12"
+      text-anchor="middle"
+      alignment-baseline="middle"
+      >
+      {{node.id()}}
+    </text>
+    <text class="compId"
       ng-attr-x="{{node.width()/2}}"
       y="25"
       text-anchor="middle"

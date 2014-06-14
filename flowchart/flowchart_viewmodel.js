@@ -53,6 +53,7 @@ var flowchart = {
 		};
 	};
 
+
 	//
 	// View model for a connector.
 	//
@@ -64,32 +65,24 @@ var flowchart = {
 		this._y = y;
 
 		//
-		// The name of the connector.
+		// The id of the connector.
+		//this.id = function () { return this.data.id; }
+
 		//
-		this.name = function () {
-			return this.data.name;
-		}
+		// The name of the connector.
+		this.name = function () { return this.data.name; }
 
 		//
 		// X coordinate of the connector.
-		//
-		this.x = function () {
-			return this._x;
-		};
+		this.x = function () { return this._x; };
 
 		//
 		// Y coordinate of the connector.
-		//
-		this.y = function () { 
-			return this._y;
-		};
+		this.y = function () { return this._y; };
 
 		//
 		// The parent node that the connector is attached to.
-		//
-		this.parentNode = function () {
-			return this._parentNode;
-		};
+		this.parentNode = function () { return this._parentNode; };
 	};
 
 	//
@@ -109,6 +102,8 @@ var flowchart = {
 		return viewModels;
 	};
 
+
+
 	//
 	// View model for a node.
 	//
@@ -122,28 +117,27 @@ var flowchart = {
 		this._selected = false;
 
 		//
-		// Name of the node.
+		// ID of the node.
+		this.id = function () { return this.data.id; }
+
 		//
+		// Name of the node.
 		this.name = function () { return this.data.name || ""; };
 
 		//
 		// X coordinate of the node.
-		//
 		this.x = function () { return this.data.x; };
 
 		//
 		// Y coordinate of the node.
-		//
 		this.y = function () { return this.data.y; };
 
 		//
 		// Width of the node.
-		//
 		this.width = function () { return flowchart.nodeWidth; }
 
 		//
 		// Height of the node.
-		//
 		this.height = function () {
 			var numConnectors =
 				Math.max(
@@ -154,12 +148,10 @@ var flowchart = {
 
 		//
 		// rx of the node.
-		//
 		this.rx = function () { return flowchart.nodeRx; }
 
 		//
 		// ry of the node.
-		//
 		this.ry = function () { return flowchart.nodeRy; }
 
 //flowchart.nodeRx
@@ -200,22 +192,18 @@ var flowchart = {
 
 		//
 		// Select the node.
-		//
 		this.select = function () { this._selected = true; };
 
 		//
 		// Deselect the node.
-		//
 		this.deselect = function () { this._selected = false; };
 
 		//
 		// Toggle the selection state of the node.
-		//
 		this.toggleSelected = function () { this._selected = !this._selected; };
 
 		//
 		// Returns true if the node is selected.
-		//
 		this.selected = function () { return this._selected; };
 
 		//
@@ -329,60 +317,43 @@ var flowchart = {
 
 		//
 		// Select the connection.
-		//
-		this.select = function () {
-			this._selected = true;
-		};
+		this.select = function () { this._selected = true; };
 
 		//
 		// Deselect the connection.
-		//
-		this.deselect = function () {
-			this._selected = false;
-		};
+		this.deselect = function () { this._selected = false; };
 
 		//
 		// Toggle the selection state of the connection.
-		//
 		this.toggleSelected = function () {
 			this._selected = !this._selected;
 		};
 
 		//
 		// Returns true if the connection is selected.
-		//
-		this.selected = function () {
-			return this._selected;
-		};
+		this.selected = function () { return this._selected; };
 	};
 
 	//
 	// Helper function.
-	//
 	var computeConnectionTangentOffset = function (pt1, pt2) {
-
 		return (pt2.x - pt1.x) / 2;	
 	}
 
 	//
 	// Compute the tangent for the bezier curve.
-	//
 	flowchart.computeConnectionSourceTangentX = function (pt1, pt2) {
-
 		return pt1.x + computeConnectionTangentOffset(pt1, pt2);
 	};
 
 	//
 	// Compute the tangent for the bezier curve.
-	//
 	flowchart.computeConnectionSourceTangentY = function (pt1, pt2) {
-
 		return pt1.y;
 	};
 
 	//
 	// Compute the tangent for the bezier curve.
-	//
 	flowchart.computeConnectionSourceTangent = function(pt1, pt2) {
 		return {
 			x: flowchart.computeConnectionSourceTangentX(pt1, pt2),
@@ -392,7 +363,6 @@ var flowchart = {
 
 	//
 	// Compute the tangent for the bezier curve.
-	//
 	flowchart.computeConnectionDestTangentX = function (pt1, pt2) {
 
 		return pt2.x - computeConnectionTangentOffset(pt1, pt2);
@@ -400,7 +370,6 @@ var flowchart = {
 
 	//
 	// Compute the tangent for the bezier curve.
-	//
 	flowchart.computeConnectionDestTangentY = function (pt1, pt2) {
 
 		return pt2.y;
@@ -408,7 +377,6 @@ var flowchart = {
 
 	//
 	// Compute the tangent for the bezier curve.
-	//
 	flowchart.computeConnectionDestTangent = function(pt1, pt2) {
 		return {
 			x: flowchart.computeConnectionDestTangentX(pt1, pt2),
@@ -418,7 +386,6 @@ var flowchart = {
 
 	//
 	// View model for the chart.
-	//
 	flowchart.ChartViewModel = function (chartDataModel) {
 
 		//
@@ -555,20 +522,17 @@ var flowchart = {
 		// Add a node to the view model.
 		//
 		this.addNode = function (nodeDataModel) {
-			if (!this.data.nodes) {
-				this.data.nodes = [];
-			}
+			if (!this.data.nodes) { this.data.nodes = []; }
 
 			// 
 			// Update the data model.
-			//
 			this.data.nodes.push(nodeDataModel);
 
 			// 
 			// Update the view model.
-			//
 			this.nodes.push(new flowchart.NodeViewModel(nodeDataModel));		
 		}
+
 
 		//
 		// Select all nodes and connections in the chart.
@@ -619,6 +583,7 @@ var flowchart = {
 				node.data.y += deltaY;
 			}
 		};
+
 
 		//
 		// Handle mouse click on a particular node.
@@ -767,6 +732,7 @@ var flowchart = {
 
 			return selectedNodes;
 		};
+
 
 		//
 		// Get the array of connections that are currently selected.

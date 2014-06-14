@@ -25,6 +25,7 @@ angular.module('flowChart', ['dragging'] )
   };
 })
 
+
 //
 // Directive that allows the chart to be edited as json in a textarea.
 //
@@ -56,6 +57,7 @@ angular.module('flowChart', ['dragging'] )
 			//
 			scope.$watch("viewModel.data", updateJson, true);
 
+
 			//
 			// Handle the change event from the textarea and update the data model
 			// from the modified json.
@@ -72,6 +74,7 @@ angular.module('flowChart', ['dragging'] )
 
 })
 
+
 //
 // Controller for the flowchart directive.
 // Having a separate controller is better for unit testing, otherwise
@@ -84,15 +87,11 @@ angular.module('flowChart', ['dragging'] )
 
 	//
 	// Reference to the document and jQuery, can be overridden for testting.
-	//
 	this.document = document;
 
 	//
 	// Wrap jQuery so it can easily be  mocked for testing.
-	//
-	this.jQuery = function (element) {
-		return $(element);
-	}
+	this.jQuery = function (element) { return $(element); }
 
 	//
 	// Init data-model variables.
@@ -123,6 +122,7 @@ angular.module('flowChart', ['dragging'] )
 	this.connectorClass = 'connector';
 	this.nodeClass = 'node';
 
+
 	//
 	// Search up the HTML element tree for an element the requested class.
 	//
@@ -130,24 +130,18 @@ angular.module('flowChart', ['dragging'] )
 
 		//
 		// Reached the root.
-		//
 		if (element == null || element.length == 0) {
 			return null;
 		}
 
-		// 
 		// Check if the element has the class that identifies it as a connector.
-		//
 		if (hasClassSVG(element, parentClass)) {
-			//
+
 			// Found the connector element.
-			//
 			return element;
 		}
 
-		//
 		// Recursively search parent elements.
-		//
 		return this.searchUp(element.parent(), parentClass);
 	};
 
@@ -155,10 +149,8 @@ angular.module('flowChart', ['dragging'] )
 	// Hit test and retreive node and connector that was hit at the specified coordinates.
 	//
 	this.hitTest = function (clientX, clientY) {
-
-		//
+		
 		// Retreive the element the mouse is currently over.
-		//
 		return this.document.elementFromPoint(clientX, clientY);
 	};
 
@@ -171,12 +163,11 @@ angular.module('flowChart', ['dragging'] )
 		// Find the parent element, if any, that is a connector.
 		//
 		var hoverElement = this.searchUp(this.jQuery(mouseOverElement), whichClass);
-		if (!hoverElement) {
-			return null;
-		}
+		if (!hoverElement) { return null; }
 
 		return hoverElement.scope();
 	};
+
 
 	//
 	// Translate the coordinates so they are relative to the svg element.
@@ -189,6 +180,7 @@ angular.module('flowChart', ['dragging'] )
 		point.y = y;
 		return point.matrixTransform(matrix.inverse());
 	};
+
 
 	//
 	// Called on mouse down in the chart.
@@ -241,6 +233,7 @@ angular.module('flowChart', ['dragging'] )
 		});
 	};
 
+
 	//
 	// Called for each mouse move on the svg element.
 	//
@@ -282,6 +275,7 @@ angular.module('flowChart', ['dragging'] )
 		var scope = controller.checkForHit(mouseOverElement, controller.nodeClass);
 		$scope.mouseOverNode = (scope && scope.node) ? scope.node : null;		
 	};
+
 
 	//
 	// Handle mousedown on a node.
@@ -334,6 +328,7 @@ angular.module('flowChart', ['dragging'] )
 		});
 	};
 
+
 	//
 	// Handle mousedown on a connection.
 	//
@@ -345,6 +340,7 @@ angular.module('flowChart', ['dragging'] )
 		evt.stopPropagation();
 		evt.preventDefault();
 	};
+
 
 	//
 	// Handle mousedown on an input connector.

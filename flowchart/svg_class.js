@@ -9,16 +9,12 @@
 // returns true if successful, false if remove does not exist in obj
 var removeClassSVG = function(obj, remove) {
     var classes = obj.attr('class');
-    if (!classes) {
-    	return false;
-    }
+    if (!classes) {  return false;  }
 
     var index = classes.search(remove);
     	
     // if the class already doesn't exist, return false now
-    if (index == -1) {
-        return false;
-    }
+    if (index == -1) {  return false;  }
     else {    
         // string manipulation to remove the class
         classes = classes.substring(0, index) + classes.substring((index + remove.length), classes.length);
@@ -35,16 +31,10 @@ var removeClassSVG = function(obj, remove) {
 // returns true if the class exits in obj, false otherwise
 var hasClassSVG = function(obj, has) {
     var classes = obj.attr('class');
-    if (!classes) {
-    	return false;
-    }
+    if (!classes) {  return false;  }
     
     var index = classes.search(has);
     	
-    if (index == -1) {
-    	return false;
-    }
-    else {
-    	return true;
-    }
+    if (index == -1) {  return false;  }
+    else {  return true;  }
 };

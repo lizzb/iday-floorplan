@@ -9,11 +9,8 @@ angular.module('app', ['flowChart', ])
 //
 .factory('prompt', function () {
 
-	/* Uncomment the following to test that the prompt service is working as expected.
-	return function () {
-		return "Test!";
-	}
-	*/
+	// Uncomment the following to test that the prompt service is working as expected.
+	// return function () { return "Test!"; }
 
 	// Return the browsers prompt function.
 	return prompt;
@@ -39,8 +36,7 @@ angular.module('app', ['flowChart', ])
 	//
 	var nextNodeID = 10;
 
-	
-	//var floorplanDataModel
+
 	var chartDataModel = {
 	
 		nodes: [
@@ -66,6 +62,23 @@ angular.module('app', ['flowChart', ])
 
 		connections: []
 	};
+	
+	//var floorplanDataModel
+	/*var chartDataModel = {
+	
+		nodes: [
+			{
+				
+			},
+
+			{
+				
+			},
+
+		],
+
+		connections: []
+	};*/
 
 	//
 	// Event handler for key-down on the flowchart.
@@ -88,14 +101,12 @@ angular.module('app', ['flowChart', ])
 		if (evt.keyCode === deleteKeyCode) {
 			//
 			// Delete key.
-			//
 			$scope.chartViewModel.deleteSelected();
 		}
 
 		if (evt.keyCode == aKeyCode && ctrlDown) {
 			// 
 			// Ctrl + A
-			//
 			$scope.chartViewModel.selectAll();
 		}
 
@@ -377,8 +388,9 @@ companyNameIDs.push("microsoft");
 
 		//for (var compIdIndex = 0; compIdIndex < companyNameIDs.length; ++compIdIndex)
 
-		// make sure if you dont have ENOUGH rows/cols itll be okay too!
+		// TODO: make sure if you dont have ENOUGH rows/cols itll be okay too!
 
+		// TODO: need to go in reverse cuz this way reversed order of booths
 		for (var i = 0; i < numRows; ++i) {
 			//addNewBooth();
 			for (var j = 0; j < numCols && compIdIndex < companyNameIDs.length; ++j) {
@@ -390,6 +402,14 @@ companyNameIDs.push("microsoft");
 		
 	};
 
+
+	//
+	// Delete all current nodes and connections on chart
+	//
+	$scope.clearAll = function () {
+		$scope.chartViewModel.selectAll();
+		$scope.chartViewModel.deleteSelected();
+	};
 
 
 	//
@@ -407,6 +427,7 @@ companyNameIDs.push("microsoft");
 			});
 		}
 	};
+
 
 	//
 	// Add an input connector to selected nodes.
@@ -446,7 +467,6 @@ companyNameIDs.push("microsoft");
 	// Delete selected nodes and connections.
 	//
 	$scope.deleteSelected = function () {
-
 		$scope.chartViewModel.deleteSelected();
 	};
 
