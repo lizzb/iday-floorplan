@@ -239,11 +239,97 @@ angular.module('app', ['flowChart', ])
 
 			// companies
 		var companyNameIDs = [];
-		companyNameIDs.push("3m");
+		/*companyNameIDs.push("3m");
 		companyNameIDs.push("accenture");
 		companyNameIDs.push("alcatel-lucent");
 		companyNameIDs.push("boeing");
-		companyNameIDs.push("fenwal");
+		companyNameIDs.push("fenwal");*/
+
+		
+companyNameIDs.push("fenwal");
+companyNameIDs.push("carsdotcom");
+companyNameIDs.push("fti");
+companyNameIDs.push("bemis");
+companyNameIDs.push("epic");
+companyNameIDs.push("mathworks");
+companyNameIDs.push("boeing");
+companyNameIDs.push("kiewit");
+companyNameIDs.push("alcatel-lucent");
+companyNameIDs.push("imc");
+companyNameIDs.push("mwrdgc");
+companyNameIDs.push("cme-group");
+companyNameIDs.push("pratt-whitney");
+companyNameIDs.push("gtl");
+companyNameIDs.push("pwc");
+companyNameIDs.push("itw");
+companyNameIDs.push("trading-tech");
+companyNameIDs.push("sbb");
+companyNameIDs.push("outerwall");
+companyNameIDs.push("com-ed");
+companyNameIDs.push("chopper-trading");
+companyNameIDs.push("citadel");
+companyNameIDs.push("clarity");
+companyNameIDs.push("yahoo");
+companyNameIDs.push("gdeb");
+companyNameIDs.push("wolverine-trading");
+companyNameIDs.push("mta");
+companyNameIDs.push("mbhb-llc");
+companyNameIDs.push("think-big");
+companyNameIDs.push("here-nokia");
+companyNameIDs.push("etherios");
+companyNameIDs.push("lend-lease");
+companyNameIDs.push("schneider-electric");
+companyNameIDs.push("zebra-tech");
+companyNameIDs.push("ucc");
+companyNameIDs.push("northwestern-mutual");
+companyNameIDs.push("idot");
+companyNameIDs.push("pariveda");
+companyNameIDs.push("continental");
+companyNameIDs.push("zs-associates");
+companyNameIDs.push("ida");
+companyNameIDs.push("factset");
+companyNameIDs.push("altec");
+companyNameIDs.push("chrylser-group");
+companyNameIDs.push("adage-tech");
+companyNameIDs.push("denso");
+companyNameIDs.push("environ");
+companyNameIDs.push("ama");
+companyNameIDs.push("wrigley");
+companyNameIDs.push("sapient-nitro");
+companyNameIDs.push("hfz-llc");
+companyNameIDs.push("avantcredit");
+companyNameIDs.push("spacex");
+companyNameIDs.push("dmc-inc");
+companyNameIDs.push("pepsico");
+companyNameIDs.push("wms");
+companyNameIDs.push("nielsen");
+companyNameIDs.push("dropbox");
+companyNameIDs.push("thoughtworks");
+companyNameIDs.push("allstate");
+companyNameIDs.push("deloitte");
+companyNameIDs.push("oracle");
+companyNameIDs.push("ge");
+companyNameIDs.push("mozilla");
+companyNameIDs.push("tata");
+companyNameIDs.push("hospira");
+companyNameIDs.push("pec");
+companyNameIDs.push("readyforce");
+companyNameIDs.push("accenture");
+companyNameIDs.push("shmoop");
+companyNameIDs.push("ford");
+companyNameIDs.push("united-airlines");
+companyNameIDs.push("goodyear");
+companyNameIDs.push("at-t");
+companyNameIDs.push("s-c-electric");
+companyNameIDs.push("exxon-mobil");
+companyNameIDs.push("facebook");
+companyNameIDs.push("discover");
+companyNameIDs.push("3m");
+companyNameIDs.push("baxter");
+companyNameIDs.push("p-g");
+companyNameIDs.push("northrop-grumman");
+companyNameIDs.push("gaf");
+companyNameIDs.push("microsoft");
 
 		
 
@@ -282,8 +368,8 @@ angular.module('app', ['flowChart', ])
 		var numCols = parseInt(numColInput);
 		*/
 
-		var numRows = 4; //companyNameIDs.length % 2;
-		var numCols = 3; //companyNameIDs.length;
+		var numRows = 11; //companyNameIDs.length % 2;
+		var numCols = 8; //companyNameIDs.length;
 
 		var compIdIndex = 0;
 
@@ -291,7 +377,7 @@ angular.module('app', ['flowChart', ])
 
 		//for (var compIdIndex = 0; compIdIndex < companyNameIDs.length; ++compIdIndex)
 
-
+		// make sure if you dont have ENOUGH rows/cols itll be okay too!
 
 		for (var i = 0; i < numRows; ++i) {
 			//addNewBooth();
@@ -504,3 +590,4 @@ angular.module('app', ['flowChart', ])
 		$scope.chartViewModel.addNode(newNodeDataModel);
 	};*/
 
+//");
