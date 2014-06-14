@@ -125,6 +125,10 @@ var flowchart = {
 		this.name = function () { return this.data.name || ""; };
 
 		//
+		// SET X coordinate of the node.
+		this.SetX = function (xpos) { this.data.x = xpos; };
+
+		// GET
 		// X coordinate of the node.
 		this.x = function () { return this.data.x; };
 
@@ -132,6 +136,7 @@ var flowchart = {
 		// Y coordinate of the node.
 		this.y = function () { return this.data.y; };
 
+		
 		//
 		// Width of the node.
 		this.width = function () { return flowchart.nodeWidth; }
@@ -325,9 +330,7 @@ var flowchart = {
 
 		//
 		// Toggle the selection state of the connection.
-		this.toggleSelected = function () {
-			this._selected = !this._selected;
-		};
+		this.toggleSelected = function () { this._selected = !this._selected; };
 
 		//
 		// Returns true if the connection is selected.
@@ -590,9 +593,7 @@ var flowchart = {
 		//
 		this.handleNodeClicked = function (node, ctrlKey) {
 
-			if (ctrlKey) {
-				node.toggleSelected();
-			}
+			if (ctrlKey) { node.toggleSelected(); }
 			else {
 				this.deselectAll();
 				node.select();
@@ -614,12 +615,43 @@ var flowchart = {
 		//
 		this.handleConnectionMouseDown = function (connection, ctrlKey) {
 
-			if (ctrlKey) {
-				connection.toggleSelected();
-			}
+			if (ctrlKey) { connection.toggleSelected(); }
 			else {
 				this.deselectAll();
 				connection.select();
+			}
+		};
+
+		this.setSelectedYCoord = function(newYCoord)
+		{
+			var selectedNodes = this.getSelectedNodes();
+			var selectedConnections = this.getSelectedConnections();
+
+			for (var i = 0; i < selectedNodes.length; ++i) {
+				selectedNodes[i].data.y = newYCoord;
+			}
+
+			for (var j = 0; j < selectedConnections.length; ++j) {
+				selectedConnections[j].data.y = newYCoord;
+			}
+		};
+
+
+				
+		this.setSelectedXCoord = function(newXCoord)
+		{
+			var selectedNodes = this.getSelectedNodes();
+			var selectedConnections = this.getSelectedConnections();
+
+			for (var i = 0; i < selectedNodes.length; ++i) {
+				//var node = selectedNodes[i];
+				//node.data.x += deltaX;
+				//node.data.y += deltaY;
+				selectedNodes[i].data.x = newXCoord;
+			}
+
+			for (var j = 0; j < selectedConnections.length; ++j) {
+				selectedConnections[j].data.x = newXCoord;
 			}
 		};
 

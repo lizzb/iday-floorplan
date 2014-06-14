@@ -413,6 +413,36 @@ companyNameIDs.push("microsoft");
 
 
 	//
+	// Set X coordinate for selected items
+	//
+	$scope.setXCoord = function () {
+
+		var xInput = prompt("Enter new x coordinate for selected elements:", "");
+		if (!xInput) { return; }
+		var newXCoord = parseInt(xInput);
+
+		$scope.chartViewModel.setSelectedXCoord(newXCoord);
+	};
+
+
+	//
+	// Set Y coordinate for selected items
+	//
+	$scope.setYCoord = function () {
+
+		var yInput = prompt("Enter new y coordinate for selected elements:", "");
+		if (!yInput) { return; }
+		var newYCoord = parseInt(yInput);
+
+		$scope.chartViewModel.setSelectedYCoord(newYCoord);
+	};
+
+
+
+
+
+
+	//
 	// Add an input connector to selected nodes.
 	//
 	$scope.addNewInputConnector = function () {
