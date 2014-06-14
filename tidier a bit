@@ -1,0 +1,1572 @@
+<svg xmlns="http://www.w3.org/2000/svg" ng-mousedown="mouseDown($event)" ng-mousemove="mouseMove($event)" chart="chartViewModel">
+    <style>
+    .caption{
+  font-size: 14px;
+  font-family: Georgia, serif;
+    }
+    .tooltip{
+  font-size: 12px;
+    }
+    .tooltip_bg{
+  fill: white;
+  stroke: black;
+  stroke-width: 1;
+  opacity: 0.85;
+    }
+
+        .boothId {font-size: 11px;}
+        .compId {font-size: 14px;}
+  </style>
+
+  <!--script type="text/ecmascript">
+    <![CDATA[
+
+THIS IS NOW BEING CALLED BUT IT DOESNT THINK IT IS DEFINED
+  
+  function init(evt)
+  {
+      if ( window.svgDocument == null )
+      {
+    svgDocument = evt.target.ownerDocument;
+      }
+
+      tooltip = svgDocument.getElementById('tooltip');
+      tooltip_bg = svgDocument.getElementById('tooltip_bg');
+
+  }
+
+//http://www.petercollingridge.co.uk/book/export/html/437
+
+  function ShowTooltip(evt, mouseovertext)
+  {
+      tooltip.setAttributeNS(null,"x",evt.clientX+11);
+      tooltip.setAttributeNS(null,"y",evt.clientY+27);
+      tooltip.firstChild.data = mouseovertext;
+      tooltip.setAttributeNS(null,"visibility","visible");
+
+      tooltip_bg.setAttributeNS(null,"x",evt.clientX+8);
+      tooltip_bg.setAttributeNS(null,"y",evt.clientY+14);
+      tooltip_bg.setAttributeNS(null,"visibility","visibile");
+  }
+
+  function HideTooltip(evt)
+  {
+      tooltip.setAttributeNS(null,"visibility","hidden");
+      tooltip_bg.setAttributeNS(null,"visibility","hidden");
+  }
+
+  THIS IS NOW BEING CALLED BUT IT DOESNT THINK IT IS DEFINED
+      onmousemove="ShowTooltip(evt, 'Right box')"
+      onmouseout="HideTooltip(evt)"
+
+    ]]>
+  </script-->
+  <defs>
+    <linearGradient spreadMethod="pad" y2="0" x2="0" y1="1" x1="0" id="nodeBackgroundGradient">
+      <stop offset="0" stop-opacity="0.99609" stop-color="#d0d0e5"></stop>
+        <stop offset="0.63934" stop-opacity="0.99219" stop-color="#d0d0e5"></stop>
+    </linearGradient>
+  </defs>
+  <!-- ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(824, 620)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth1
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      fenwal
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(698, 620)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth2
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      carsdotcom
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(570, 620)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth3
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      fti
+    </text>
+
+    <!-- ............................................ -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(443, 620)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth4
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      bemis
+    </text>
+
+    <!-- ............................................ -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(315, 620)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth5
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      epic
+    </text>
+
+    <!-- ............................................ -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(188, 620)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth6
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      mathworks
+    </text>
+
+    <!-- ............................................ -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(64, 620)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth7
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      boeing
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(11, 550.0000228881836)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth8
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      kiewit
+    </text>
+
+    <!-- ............................................ -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(45, 450)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth9
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      alcatel-lucent
+    </text>
+
+    <!-- ............................................ -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(170, 450)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth10
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      imc
+    </text>
+
+    <!-- ............................................ -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(293, 450)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth11
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      mwrdgc
+    </text>
+
+    <!-- ............................................ -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(418, 450)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth12
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      cme-group
+    </text>
+
+    <!-- ............................................ -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(545, 450)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth13
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      pratt-whitney
+    </text>
+
+    <!-- ............................................ -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(288, 996)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="selected-node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth14
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      gtl
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(797, 450)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth15
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      pwc
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(944, 450)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth16
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      itw
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(944, 400)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth17
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      trading-tech
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(797, 400)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth18
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      sbb
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(670, 400)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth19
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      outerwall
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(543, 400)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth20
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      com-ed
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(416, 400)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth21
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      chopper-trading
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(291, 400)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth22
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      citadel
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(170, 400)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth23
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      clarity
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(45, 400)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth24
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      yahoo
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(36, 325)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth25
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      gdeb
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(163, 325)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth26
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      wolverine-trading
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(288, 325)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth27
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      mta
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(413, 325)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth28
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      mbhb-llc
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(538, 325)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth29
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      think-big
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(663, 325)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth30
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      here-nokia
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(788, 325)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth31
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      etherios
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(933, 325)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth32
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      lend-lease
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(932, 275)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth33
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      schneider-electric
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(779, 275)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth34
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      zebra-tech
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(650, 275)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth35
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      ucc
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(519, 275)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth36
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      northwestern-mutual
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(390, 275)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth37
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      idot
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(269, 275)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth38
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      pariveda
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(138, 275)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth39
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      continental
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(11, 275)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth40
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      zs-associates
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(1118, 385)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth41
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      ida
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(1113, 333)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth42
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      factset
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(1114, 277)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth43
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      altec
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(1115, 180)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth44
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      chrylser-group
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(982, 180)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth45
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      adage-tech
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(863, 180)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth46
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      denso
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(738, 180)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth47
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      environ
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(621, 180)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth48
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      ama
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(492, 180)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth49
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      wrigley
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(365, 180)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth50
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      sapient-nitro
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(246, 180)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth51
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      hfz-llc
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(125, 180)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth52
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      avantcredit
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(2, 180)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth53
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      spacex
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(891, 1224)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth54
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      dmc-inc
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(782, 1140)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth55
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      pepsico
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(645, 1142)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth56
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      wms
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(514, 1141)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth57
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      nielsen
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(377, 1141)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth58
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      dropbox
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(228, 1173)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth59
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      thoughtworks
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(229, 1223)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth60
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      allstate
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(456, 1277)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth61
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      deloitte
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(581, 1277)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth62
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      oracle
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(706, 1277)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth63
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      ge
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(901, 964.0000305175781)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth64
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      mozilla
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(26, 1009.0000305175781)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth65
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      tata
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(151, 1009.0000305175781)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth66
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      hospira
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(276, 1009.0000305175781)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="mouseover-node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth67
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      pec
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(401, 1009.0000305175781)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth68
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      readyforce
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(526, 1009.0000305175781)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth69
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      accenture
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(651, 1009.0000305175781)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth70
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      shmoop
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(776, 1009.0000305175781)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth71
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      ford
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(900, 727.0000305175781)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth72
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      united-airlines
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(25, 772.0000305175781)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth73
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      goodyear
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(150, 772.0000305175781)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth74
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      at-t
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(275, 772.0000305175781)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth75
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      s-c-electric
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(400, 772.0000305175781)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth76
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      exxon-mobil
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(525, 772.0000305175781)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth77
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      facebook
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(650, 772.0000305175781)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth78
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      discover
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(775, 772.0000305175781)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth79
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      3m
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(527, 867.0000305175781)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth80
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      baxter
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(27, 866.0000305175781)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth81
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      p-g
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(152, 866.0000305175781)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth82
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      northrop-grumman
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(277, 866.0000305175781)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth83
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      gaf
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes --><g ng-repeat="node in chart.nodes" ng-mousedown="nodeMouseDown($event, node)" ng-attr-transform="translate({{node.x()}}, {{node.y()}})" transform="translate(402, 866.0000305175781)">
+    <rect ng-attr-class="{{node.selected() &amp;&amp; 'selected-node-rect' || (node == mouseOverNode &amp;&amp; 'mouseover-node-rect' || 'node-rect')}}" ng-attr-ry="{{node.ry()}}" ng-attr-rx="{{node.rx()}}" x="0" y="0" ng-attr-width="{{node.width()}}" ng-attr-height="{{node.height()}}" fill="url(#nodeBackgroundGradient)" class="node-rect" ry="4" rx="4" width="120" height="40">
+    </rect>
+
+
+    <text class="boothId" ng-attr-x="{{node.width()/2}}" y="12" text-anchor="middle" alignment-baseline="middle" x="60">
+      booth84
+    </text>
+    <text class="compId" ng-attr-x="{{node.width()/2}}" y="25" text-anchor="middle" alignment-baseline="middle" x="60">
+      microsoft
+    </text>
+
+    <!-- ngRepeat: connector in node.inputConnectors -->
+
+    <!-- ngRepeat: connector in node.outputConnectors -->
+
+      <rect class="tooltip_bg" id="tooltip_bg" x="0" y="0" rx="4" ry="4" width="55" height="17" visibility="hidden"></rect>
+  <text class="tooltip" id="tooltip" x="0" y="0" visibility="hidden">Tooltip</text>
+  </g><!-- end ngRepeat: node in chart.nodes -->
+
+  <g>
+    <!-- ngRepeat: connection in chart.connections -->
+  </g>
+
+  <!-- ngIf: draggingConnection -->
+
+  <!-- ngIf: dragSelecting -->
+  
+</svg>
