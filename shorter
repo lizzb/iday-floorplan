@@ -1,0 +1,87 @@
+
+	var chartDataModel = {
+
+    "nodes": [
+{
+            "name": "fenwal",
+            "id": "booth23",
+            "x": 824,
+            "y": 620,
+            "inputConnectors": [],
+            "outputConnectors": []
+        },
+        {
+            "name": "carsdotcom",
+            "id": "booth11",
+            "x": 698,
+            "y": 620,
+            "inputConnectors": [],
+            "outputConnectors": []
+        },
+        {
+            "name": "fti",
+            "id": "booth2",
+            "x": 570,
+            "y": 620,
+            "inputConnectors": [],
+            "outputConnectors": []
+        },
+        {
+            "name": "bemis",
+            "id": "booth24",
+            "x": 443,
+            "y": 620,
+            "inputConnectors": [],
+            "outputConnectors": []
+        },
+        {
+            "name": "epic",
+            "id": "booth12",
+            "x": 315,
+            "y": 620,
+            "inputConnectors": [],
+            "outputConnectors": []
+        },
+        {
+            "name": "mathworks",
+            "id": "booth20",
+            "x": 188,
+            "y": 620,
+            "inputConnectors": [],
+            "outputConnectors": []
+        },
+        {
+            "name": "boeing",
+            "id": "booth7",
+            "x": 64,
+            "y": 620,
+            "inputConnectors": [],
+            "outputConnectors": []
+        },
+        {
+            "name": "kiewit",
+            "id": "booth15",
+            "x": 11,
+            "y": 550.0000228881836,
+            "inputConnectors": [],
+            "outputConnectors": []
+        },
+        {
+            "name": "alcatel-lucent",
+            "id": "booth9",
+            "x": 45,
+            "y": 450,
+            "inputConnectors": [],
+            "outputConnectors": []
+        },
+        {
+            "name": "imc",
+            "id": "booth26",
+            "x": 170,
+            "y": 450,
+            "inputConnectors": [],
+            "outputConnectors": []
+        },
+    ],
+    "connections": []
+};
