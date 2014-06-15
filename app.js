@@ -823,6 +823,24 @@ angular.module('app', ['flowChart', ])
 
     };*/
 
+
+        $scope.makeNewBooth = function (xpos, ypos, boothIDNum) {
+
+        //
+        // Template for a new booth.
+        //
+        var newBoothDataModel = {
+            name: "",
+            id: "booth"+boothIDNum,
+            x: xpos,
+            y: ypos//,
+            //inputConnectors: [],
+           // outputConnectors: [],
+        };
+
+        $scope.chartViewModel.addNode(newBoothDataModel);
+    };
+
 	//
 	// Add a new booth node to the chart.
 	//
@@ -923,22 +941,7 @@ angular.module('app', ['flowChart', ])
 	};
 
 
-    $scope.makeNewBooth = function (xpos, ypos, boothIDNum) {
 
-        //
-        // Template for a new booth.
-        //
-        var newBoothDataModel = {
-            name: "",
-            id: "booth"+boothIDNum,
-            x: xpos,
-            y: ypos,
-            inputConnectors: [],
-            outputConnectors: [],
-        };
-
-        $scope.chartViewModel.addNode(newBoothDataModel);
-    };
 
 
 
