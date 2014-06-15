@@ -870,14 +870,27 @@ angular.module('app', ['flowChart', ])
 		//
 		// Template for a new booth.
 		//
-		var newBoothDataModel = {
+		/*var newBoothDataModel = {
 			name: boothName,
 			id: "booth"+nextBoothID++,
 			x: xpos,
 			y: ypos//,
 			//inputConnectors: [],
 			//outputConnectors: [],
-		};
+		};*/
+
+        //
+        // Template for a new booth.
+        //
+        var newBoothDataModel = {
+            //name: "boothName",
+            id: "booth"+boothName, //nextBoothID++,
+            x: xpos,
+            y: ypos//,
+            //inputConnectors: [],
+            //outputConnectors: [],
+        };
+
 
 		$scope.chartViewModel.addNode(newBoothDataModel);
 	};
@@ -975,7 +988,7 @@ angular.module('app', ['flowChart', ])
 		companyNameIDs.push("boeing");
 		companyNameIDs.push("fenwal");*/
 
-		
+		/*
 companyNameIDs.push("fenwal");
 companyNameIDs.push("carsdotcom");
 companyNameIDs.push("fti");
@@ -1061,7 +1074,7 @@ companyNameIDs.push("northrop-grumman");
 companyNameIDs.push("gaf");
 companyNameIDs.push("microsoft");
 
-companyNameIDs.empty();
+companyNameIDs.empty();*/
 companyNameIDs = ["23", "11", "2", "24", "12", "20", "7", "15", "9", ""];
 
 		
@@ -1127,7 +1140,7 @@ companyNameIDs = ["23", "11", "2", "24", "12", "20", "7", "15", "9", ""];
 		
 	};
 
-
+/*
         $scope.addBoothsFromList = function () {// 
 
             // companies
@@ -1150,7 +1163,7 @@ companyNameIDs = ["23", "11", "2", "24", "12", "20", "7", "15", "9", ""];
             }
         }
 
-    };
+    };*/
 
 
 
