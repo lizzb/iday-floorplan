@@ -14,6 +14,16 @@ var flowchart = {
 	//
 	flowchart.nodeWidth = 120; //250;
 
+	//
+	// Amount of space reserved for displaying the node's name.
+	//
+	flowchart.nodeNameHeight = 40;
+
+	//
+	// Height of a connector in a node.
+	//
+	flowchart.connectorHeight = 35;
+
 	flowchart.nodeRx = 4;
 	flowchart.nodeRy = 4;
 	/*
@@ -26,16 +36,8 @@ var flowchart = {
 	flowchart.nodeColor2Grad = "#d0d0e5";
 	*/
 
-	//
-	// Amount of space reserved for displaying the node's name.
-	//
-	flowchart.nodeNameHeight = 40;
 
-	//
-	// Height of a connector in a node.
-	//
-	flowchart.connectorHeight = 35;
-
+	/*
 	//
 	// Compute the Y coordinate of a connector, given its index.
 	//
@@ -52,8 +54,9 @@ var flowchart = {
 			y: node.y() + flowchart.computeConnectorY(connectorIndex),
 		};
 	};
+	*/
 
-
+	/*
 	//
 	// View model for a connector.
 	//
@@ -100,7 +103,7 @@ var flowchart = {
 		}
 
 		return viewModels;
-	};
+	};*/
 
 
 
@@ -110,8 +113,8 @@ var flowchart = {
 	flowchart.NodeViewModel = function (nodeDataModel) {
 
 		this.data = nodeDataModel;
-		this.inputConnectors = createConnectorsViewModel(this.data.inputConnectors, 0, this);
-		this.outputConnectors = createConnectorsViewModel(this.data.outputConnectors, flowchart.nodeWidth, this);
+		//this.inputConnectors = createConnectorsViewModel(this.data.inputConnectors, 0, this);
+		//this.outputConnectors = createConnectorsViewModel(this.data.outputConnectors, flowchart.nodeWidth, this);
 
 		// Set to true when the node is selected.
 		this._selected = false;
@@ -126,10 +129,10 @@ var flowchart = {
 
 		//
 		// SET X coordinate of the node.
-		this.SetX = function (xpos) { this.data.x = xpos; };
+		this.SetX = function (xpos) { this.data.x = xpos; }; // is this ever used? why no setY?
 
 		// GET
-		// X coordinate of the node.
+		// GET X coordinate of the node.
 		this.x = function () { return this.data.x; };
 
 		//
@@ -143,13 +146,14 @@ var flowchart = {
 
 		//
 		// Height of the node.
-		this.height = function () {
+		this.height = function () { return flowchart.nodeHeight; }
+		/*{
 			var numConnectors =
 				Math.max(
 					this.inputConnectors.length, 
 					this.outputConnectors.length);
 			return flowchart.computeConnectorY(numConnectors);
-		}
+		}*/
 
 		//
 		// rx of the node.
@@ -211,6 +215,7 @@ var flowchart = {
 		// Returns true if the node is selected.
 		this.selected = function () { return this._selected; };
 
+		/*
 		//
 		// Internal function to add a connector.
 		this._addConnector = function (connectorDataModel, x, connectorsDataModel, connectorsViewModel) {
@@ -244,7 +249,7 @@ var flowchart = {
 				this.data.outputConnectors = [];
 			}
 			this._addConnector(connectorDataModel, flowchart.nodeWidth, this.data.outputConnectors, this.outputConnectors);
-		};
+		};*/
 	};
 
 	// 
@@ -262,6 +267,8 @@ var flowchart = {
 		return nodesViewModel;
 	};
 
+
+	/*
 	//
 	// View model for a connection.
 	//
@@ -367,14 +374,12 @@ var flowchart = {
 	//
 	// Compute the tangent for the bezier curve.
 	flowchart.computeConnectionDestTangentX = function (pt1, pt2) {
-
 		return pt2.x - computeConnectionTangentOffset(pt1, pt2);
 	};
 
 	//
 	// Compute the tangent for the bezier curve.
 	flowchart.computeConnectionDestTangentY = function (pt1, pt2) {
-
 		return pt2.y;
 	};
 
@@ -386,6 +391,8 @@ var flowchart = {
 			y: flowchart.computeConnectionDestTangentY(pt1, pt2),
 		};
 	};
+	*/
+
 
 	//
 	// View model for the chart.
@@ -398,14 +405,13 @@ var flowchart = {
 
 			for (var i = 0; i < this.nodes.length; ++i) {
 				var node = this.nodes[i];
-				if (node.data.id == nodeID) {
-					return node;
-				}
+				if (node.data.id == nodeID) {  return node;  }
 			}
 
 			throw new Error("Failed to find node " + nodeID);
 		};
 
+		/*
 		//
 		// Find a specific input connector within the chart.
 		//
@@ -459,6 +465,7 @@ var flowchart = {
 
 			return connectionsViewModel;
 		};
+		*/
 
 		// Reference to the underlying data.
 		this.data = chartDataModel;
@@ -467,8 +474,9 @@ var flowchart = {
 		this.nodes = createNodesViewModel(this.data.nodes);
 
 		// Create a view-model for connections.
-		this.connections = this._createConnectionsViewModel(this.data.connections);
+		//this.connections = this._createConnectionsViewModel(this.data.connections);
 
+		/*
 		//
 		// Create a view model for a new connection.
 		//
@@ -520,6 +528,8 @@ var flowchart = {
 			var connectionViewModel = new flowchart.ConnectionViewModel(connectionDataModel, sourceConnector, destConnector);
 			connectionsViewModel.push(connectionViewModel);
 		};		
+		*/
+
 
 		//
 		// Add a node to the view model.
@@ -548,11 +558,13 @@ var flowchart = {
 				node.select();
 			}
 
+			/*
 			var connections = this.connections;
 			for (var i = 0; i < connections.length; ++i) {
 				var connection = connections[i];
 				connection.select();
-			}			
+			}
+			*/			
 		}
 
 		//
@@ -566,11 +578,13 @@ var flowchart = {
 				node.deselect();
 			}
 
+			/*
 			var connections = this.connections;
 			for (var i = 0; i < connections.length; ++i) {
 				var connection = connections[i];
 				connection.deselect();
 			}
+			*/
 		};
 
 		//
@@ -610,6 +624,7 @@ var flowchart = {
 			this.nodes.push(node);			
 		};
 
+		/*
 		//
 		// Handle mouse down on a connection.
 		//
@@ -621,18 +636,18 @@ var flowchart = {
 				connection.select();
 			}
 		};
+		*/
 
-		this.setSelectedYCoord = function(newYCoord)
+
+
+
+		this.setSelectedID = function(newID)
 		{
 			var selectedNodes = this.getSelectedNodes();
-			var selectedConnections = this.getSelectedConnections();
+			//var selectedConnections = this.getSelectedConnections();
 
 			for (var i = 0; i < selectedNodes.length; ++i) {
-				selectedNodes[i].data.y = newYCoord;
-			}
-
-			for (var j = 0; j < selectedConnections.length; ++j) {
-				selectedConnections[j].data.y = newYCoord;
+				selectedNodes[i].data.id = newID;
 			}
 		};
 
@@ -641,18 +656,15 @@ var flowchart = {
 		this.setSelectedXCoord = function(newXCoord)
 		{
 			var selectedNodes = this.getSelectedNodes();
-			var selectedConnections = this.getSelectedConnections();
+			//var selectedConnections = this.getSelectedConnections();
 
 			for (var i = 0; i < selectedNodes.length; ++i) {
-				//var node = selectedNodes[i];
-				//node.data.x += deltaX;
-				//node.data.y += deltaY;
 				selectedNodes[i].data.x = newXCoord;
 			}
 
-			for (var j = 0; j < selectedConnections.length; ++j) {
-				selectedConnections[j].data.x = newXCoord;
-			}
+			//for (var j = 0; j < selectedConnections.length; ++j) {
+			//	selectedConnections[j].data.x = newXCoord;
+			//}
 		};
 
 		//
@@ -686,6 +698,7 @@ var flowchart = {
 				}
 			}
 
+			/*
 			var newConnectionViewModels = [];
 			var newConnectionDataModels = [];
 
@@ -708,14 +721,15 @@ var flowchart = {
 					newConnectionDataModels.push(connection.data);
 				}
 			}
+			*/
 
 			//
 			// Update nodes and connections.
 			//
 			this.nodes = newNodeViewModels;
 			this.data.nodes = newNodeDataModels;
-			this.connections = newConnectionViewModels;
-			this.data.connections = newConnectionDataModels;
+			//this.connections = newConnectionViewModels;
+			//this.data.connections = newConnectionDataModels;
 		};
 
 		//
@@ -737,6 +751,7 @@ var flowchart = {
 				}
 			}
 
+			/*
 			for (var i = 0; i < this.connections.length; ++i) {
 				var connection = this.connections[i];
 				if (connection.source.parentNode().selected() &&
@@ -746,8 +761,11 @@ var flowchart = {
 					connection.select();
 				}
 			}
+			*/
 
 		};
+
+
 
 		//
 		// Get the array of nodes that are currently selected.
@@ -757,15 +775,13 @@ var flowchart = {
 
 			for (var i = 0; i < this.nodes.length; ++i) {
 				var node = this.nodes[i];
-				if (node.selected()) {
-					selectedNodes.push(node);
-				}
+				if (node.selected()) {  selectedNodes.push(node);  }
 			}
 
 			return selectedNodes;
 		};
 
-
+		/*
 		//
 		// Get the array of connections that are currently selected.
 		//
@@ -781,6 +797,7 @@ var flowchart = {
 
 			return selectedConnections;
 		};
+		*/
 		
 
 	};

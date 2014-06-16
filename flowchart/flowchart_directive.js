@@ -96,8 +96,8 @@ angular.module('flowChart', ['dragging'] )
 	//
 	// Init data-model variables.
 	//
-	$scope.draggingConnection = false;
-	$scope.connectorSize = 10;
+	//$scope.draggingConnection = false;
+	//$scope.connectorSize = 10;
 	$scope.dragSelecting = false;
 	/* Can use this to test the drag selection rect.
 	$scope.dragSelectionRect = {
@@ -111,7 +111,7 @@ angular.module('flowChart', ['dragging'] )
 	//
 	// Reference to the connection, connector or node that the mouse is currently over.
 	//
-	$scope.mouseOverConnector = null;
+	/*$scope.mouseOverConnector = null;
 	$scope.mouseOverConnection = null;
 	$scope.mouseOverNode = null;
 
@@ -120,6 +120,7 @@ angular.module('flowChart', ['dragging'] )
 	//
 	this.connectionClass = 'connection';
 	this.connectorClass = 'connector';
+	*/
 	this.nodeClass = 'node';
 
 
@@ -130,11 +131,10 @@ angular.module('flowChart', ['dragging'] )
 
 		//
 		// Reached the root.
-		if (element == null || element.length == 0) {
-			return null;
-		}
+		if (element == null || element.length == 0) {  return null;  }
 
 		// Check if the element has the class that identifies it as a connector.
+		/*
 		if (hasClassSVG(element, parentClass)) {
 
 			// Found the connector element.
@@ -143,6 +143,7 @@ angular.module('flowChart', ['dragging'] )
 
 		// Recursively search parent elements.
 		return this.searchUp(element.parent(), parentClass);
+		*/
 	};
 
 	//
@@ -242,8 +243,8 @@ angular.module('flowChart', ['dragging'] )
 		//
 		// Clear out all cached mouse over elements.
 		//
-		$scope.mouseOverConnection = null;
-		$scope.mouseOverConnector = null;
+		//$scope.mouseOverConnection = null;
+		//$scope.mouseOverConnector = null;
 		$scope.mouseOverNode = null;
 
 		var mouseOverElement = controller.hitTest(evt.clientX, evt.clientY);
@@ -252,6 +253,7 @@ angular.module('flowChart', ['dragging'] )
 			return;
 		}
 
+		/*
 		if (!$scope.draggingConnection) { // Only allow 'connection mouse over' when not dragging out a connection.
 
 			// Figure out if the mouse is over a connection.
@@ -261,8 +263,9 @@ angular.module('flowChart', ['dragging'] )
 				// Don't attempt to mouse over anything else.
 				return;
 			}
-		}
+		}*/
 
+		/*
 		// Figure out if the mouse is over a connector.
 		var scope = controller.checkForHit(mouseOverElement, controller.connectorClass);
 		$scope.mouseOverConnector = (scope && scope.connector) ? scope.connector : null;
@@ -270,6 +273,7 @@ angular.module('flowChart', ['dragging'] )
 			// Don't attempt to mouse over anything else.
 			return;
 		}
+		*/
 
 		// Figure out if the mouse is over a node.
 		var scope = controller.checkForHit(mouseOverElement, controller.nodeClass);
@@ -328,7 +332,7 @@ angular.module('flowChart', ['dragging'] )
 		});
 	};
 
-
+	/*
 	//
 	// Handle mousedown on a connection.
 	//
@@ -340,6 +344,7 @@ angular.module('flowChart', ['dragging'] )
 		evt.stopPropagation();
 		evt.preventDefault();
 	};
+
 
 
 	//
@@ -408,6 +413,8 @@ angular.module('flowChart', ['dragging'] )
 			},
 
 		});
-	};
+	};*/
+
+
 }])
 ;

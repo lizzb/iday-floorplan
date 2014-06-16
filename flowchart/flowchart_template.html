@@ -87,31 +87,16 @@ THIS IS NOW BEING CALLED BUT IT DOESNT THINK IT IS DEFINED
         />
     </linearGradient>
   </defs>
-  <g
-    ng-repeat="node in chart.nodes"
-    ng-mousedown="nodeMouseDown($event, node)"
-    ng-attr-transform="translate({{node.x()}}, {{node.y()}})"
-    >
-    <rect 
-      ng-attr-class="{{node.selected() && 'selected-node-rect' || (node == mouseOverNode && 'mouseover-node-rect' || 'node-rect')}}"
-      ng-attr-ry="{{node.ry()}}" 
-      ng-attr-rx="{{node.rx()}}" 
-      x="0" 
-      y="0" 
-      ng-attr-width="{{node.width()}}" 
-      ng-attr-height="{{node.height()}}" 
-      fill="url(#nodeBackgroundGradient)"
-      >
-    </rect>
 
-    <text class="compId"
-      ng-attr-x="{{node.width()/2}}"
-      y="25"
-      text-anchor="middle"
-      alignment-baseline="middle"
-      >
-      {{node.id()}}
-    </text>
+
+  
+
+
+<!--  </g>  <rect class="tooltip_bg" id="tooltip_bg"
+      x="0" y="0" rx="4" ry="4"
+      width="55" height="17" visibility="hidden"/>
+  <text class="tooltip" id="tooltip"
+      x="0" y="0" visibility="hidden">Tooltip</text>-->
 
     <!--text class="boothId"
       ng-attr-x="{{node.width()/2}}"
@@ -130,6 +115,9 @@ THIS IS NOW BEING CALLED BUT IT DOESNT THINK IT IS DEFINED
       {{node.name()}}
     </text-->
 
+    
+
+    <!--
     <g
       ng-repeat="connector in node.inputConnectors"
       ng-mousedown="connectorMouseDown($event, node, connector, $index, true)"
@@ -151,7 +139,9 @@ THIS IS NOW BEING CALLED BUT IT DOESNT THINK IT IS DEFINED
         ng-attr-cy="{{connector.y()}}"
         />
     </g>
+    -->
 
+    <!--
     <g
       ng-repeat="connector in node.outputConnectors"
       ng-mousedown="connectorMouseDown($event, node, connector, $index, false)"
@@ -173,14 +163,11 @@ THIS IS NOW BEING CALLED BUT IT DOESNT THINK IT IS DEFINED
         ng-attr-cy="{{connector.y()}}"
         />
     </g>
+    -->
 
-      <rect class="tooltip_bg" id="tooltip_bg"
-      x="0" y="0" rx="4" ry="4"
-      width="55" height="17" visibility="hidden"/>
-  <text class="tooltip" id="tooltip"
-      x="0" y="0" visibility="hidden">Tooltip</text>
-  </g>
 
+
+<!--
   <g>
     <g
       ng-repeat="connection in chart.connections"
@@ -212,7 +199,9 @@ THIS IS NOW BEING CALLED BUT IT DOESNT THINK IT IS DEFINED
         </circle>
     </g>
   </g>
+  -->
 
+  
   <g
     ng-if="draggingConnection"
     >
@@ -242,6 +231,8 @@ THIS IS NOW BEING CALLED BUT IT DOESNT THINK IT IS DEFINED
     </circle>
   </g>
 
+ 
+
   <rect
       ng-if="dragSelecting"
       class="drag-selection-rect"
@@ -251,5 +242,34 @@ THIS IS NOW BEING CALLED BUT IT DOESNT THINK IT IS DEFINED
       ng-attr-height="{{dragSelectionRect.height}}"
     >
   </rect>
+
+     <g
+    ng-repeat="node in chart.nodes"
+    ng-mousedown="nodeMouseDown($event, node)"
+    ng-attr-transform="translate({{node.x()}}, {{node.y()}})"
+    >
+    <rect 
+      ng-attr-class="{{node.selected() && 'selected-node-rect' || (node == mouseOverNode && 'mouseover-node-rect' || 'node-rect')}}"
+      ng-attr-ry="{{node.ry()}}" 
+      ng-attr-rx="{{node.rx()}}" 
+      x="0" 
+      y="0" 
+      ng-attr-width="{{node.width()}}" 
+      ng-attr-height="{{node.height()}}" 
+      fill="url(#nodeBackgroundGradient)"
+      >
+    </rect>
+
+    <text class="compId"
+      ng-attr-x="{{node.width()/2}}"
+      y="25"
+      text-anchor="middle"
+      alignment-baseline="middle"
+      >
+      {{node.id()}}
+    </text>
+
+    
+  </g> 
   
 </svg>
