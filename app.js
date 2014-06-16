@@ -22,7 +22,8 @@ angular.module('app', ['flowChart', ])
 .controller('AppCtrl', ['$scope', 'prompt', function AppCtrl ($scope, prompt) {
 
 	var deleteKeyCode = 46;	// Code for the delete key.
-
+    var backspaceKeyCode = 8;
+//http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
 	var ctrlKeyCode = 65;	// Code for control key.
 
 	var ctrlDown = false;	// Set to true when the ctrl key is down.
@@ -31,15 +32,577 @@ angular.module('app', ['flowChart', ])
 
 	var escKeyCode = 27;	// Code for esc key.
 
+    var shiftKeyCode = 16;
+
+    var cmdDown = false; // event.metaKey  command key mac
+
+    // http://unixpapa.com/js/key.html
+
+    // on mac, flags: command is event.metaKey, option is event.altKey
+
 	//
 	// Selects the next node id.
 	//
 	var nextNodeID = 10;
 
 
-	var chartDataModel = {
 
+	var chartDataModel = {
     "nodes": [
+        {
+            "id": "boothunnamed",
+            "x": 0,
+            "y": 0
+        },
+        {
+            "id": "boothunnamed",
+            "x": 380,
+            "y": 21
+        },
+        {
+            "id": "boothunnamed",
+            "x": 250,
+            "y": 0
+        },
+        {
+            "id": "boothunnamed",
+            "x": 56,
+            "y": 45
+        },
+        {
+            "id": "boothunnamed",
+            "x": 123,
+            "y": 181
+        },
+        {
+            "id": "boothunnamed",
+            "x": 250,
+            "y": 45
+        },
+        {
+            "id": "boothunnamed",
+            "x": 0,
+            "y": 90
+        },
+        {
+            "id": "boothunnamed",
+            "x": 125,
+            "y": 90
+        },
+        {
+            "id": "boothunnamed",
+            "x": 0,
+            "y": 135
+        },
+        {
+            "id": "boothunnamed",
+            "x": 125,
+            "y": 135
+        },
+        {
+            "id": "boothunnamed",
+            "x": 250,
+            "y": 135
+        }
+    ],
+    "connections": []
+};
+
+    
+	
+		/*nodes: [
+			{
+				name: "Example Node 1",
+				id: 0,
+				x: 0,
+				y: 0,
+				inputConnectors: [],
+				outputConnectors: [],
+			},
+
+			{
+				name: "Example Node 2",
+				id: 1,
+				x: 400,
+				y: 200,
+				inputConnectors: [],
+				outputConnectors: [],
+			},
+
+		],
+
+		connections: []
+	};*/
+
+
+	
+	//var floorplanDataModel
+	/*var chartDataModel = {
+	
+		nodes: [
+			{
+				
+			},
+
+			{
+				
+			},
+
+		],
+
+		connections: []
+	};*/
+
+	//
+	// Event handler for key-down on the flowchart.
+	//
+	$scope.keyDown = function (evt) {
+
+        //if(evt.metaKey) alert('command!');!evt.metaKey
+        //if (evt.metaKey) alert('yay down');
+
+        // dealing with command is irritating
+        // ill use shift on my mac i guess
+
+		if (evt.keyCode === ctrlKeyCode)  {
+
+			ctrlDown = true;
+			evt.stopPropagation();
+			evt.preventDefault();
+		}
+
+        if (evt.keyCode === shiftKeyCode) ctrlDown = true;
+
+        //if (evt.metaKey) ctrlDown = true;
+
+        //if(evt.keyCode === event.metaKey)
+
+        if (evt.keyCode === backspaceKeyCode) {
+            //
+            // backspace key.
+            // this shou.ld only happen if omsething is selected
+            // but i hate backpsace fx anyway so whatever
+            $scope.chartViewModel.deleteSelected();
+            evt.preventDefault();
+            //evt.stopPropagation();
+            
+            
+        }
+	};
+
+	//
+	// Event handler for key-up on the flowchart.
+	//
+	$scope.keyUp = function (evt) {
+
+        
+
+		if (evt.keyCode === deleteKeyCode) {
+			//
+			// Delete key.
+			$scope.chartViewModel.deleteSelected();
+		}
+
+		if (evt.keyCode == aKeyCode && ctrlDown) {
+			// 
+			// Ctrl + A
+			$scope.chartViewModel.selectAll();
+		}
+
+		if (evt.keyCode == escKeyCode) {
+			// Escape.
+			$scope.chartViewModel.deselectAll();
+		}
+
+        if (evt.keyCode === shiftKeyCode) ctrlDown = false;
+		if (evt.keyCode === ctrlKeyCode) {
+
+			evt.stopPropagation();
+			evt.preventDefault();
+		}
+
+       // if (!evt.metaKey) ctrlDown = false;
+	};
+
+	
+	//
+	// Selects the next booth id.
+	//
+	var nextBoothID = 2;
+
+   /* $scope.editBoothId = function () {
+        var connectorName = prompt("Enter a booth id # (doesnt work):", "booth");
+        if (!connectorName) { return; }
+
+        var selectedNodes = $scope.chartViewModel.getSelectedNodes();
+        for (var i = 0; i < selectedNodes.length; ++i) {
+            var node = selectedNodes[i];
+            node.id = connectorName;
+        }
+
+
+
+
+    };*/
+
+
+        $scope.makeNewBooth = function (xpos, ypos, boothIDNum) {
+
+        //
+        // Template for a new booth.
+        //
+        var newBoothDataModel = {
+            name: "",
+            id: "booth"+boothIDNum,
+            x: xpos,
+            y: ypos//,
+            //inputConnectors: [],
+           // outputConnectors: [],
+        };
+
+        $scope.chartViewModel.addNode(newBoothDataModel);
+    };
+
+	//
+	// Add a new booth node to the chart.
+	//
+	$scope.addNewBooth = function () {
+
+		var boothName = prompt("Enter a booth name:", "empty booth");
+		if (!boothName) { return; }
+
+		//
+		// Template for a new booth.
+		//
+		var newBoothDataModel = {
+			name: boothName,
+			id: "booth"+nextBoothID++,
+			x: 0,
+			y: 0,
+			inputConnectors: [],
+			outputConnectors: [],
+		};
+
+		$scope.chartViewModel.addNode(newBoothDataModel);
+	};
+
+
+	function createNewBooth(xpos, ypos, boothName) {
+
+		//
+		// Template for a new booth.
+		//
+		/*var newBoothDataModel = {
+			name: boothName,
+			id: "booth"+nextBoothID++,
+			x: xpos,
+			y: ypos//,
+			//inputConnectors: [],
+			//outputConnectors: [],
+		};*/
+
+        //
+        // Template for a new booth.
+        //
+        var newBoothDataModel = {
+            //name: "boothName",
+            id: "booth"+boothName, //nextBoothID++,
+            x: xpos,
+            y: ypos//,
+            //inputConnectors: [],
+            //outputConnectors: [],
+        };
+
+
+		$scope.chartViewModel.addNode(newBoothDataModel);
+	};
+
+	$scope.addNewBoothRow = function () {
+
+		var xOffset = 120 + 5; 	// NEED TO SET THESE TO NON-LOCAL VARS
+		var yOffset = 40 + 5;	// NEED TO SET THESE TO NON-LOCAL VARS
+
+		var numInput = prompt("Enter number of booths in this row:", "3");
+		if (!numInput) { return; }
+
+		var numBooths = parseInt(numInput);
+
+		for (var i = 0; i < numBooths; ++i) {
+			//addNewBooth();
+			createNewBooth(i*xOffset, yOffset, "unnamed");
+		}
+
+	};
+
+	$scope.addNewBoothCol = function () {
+
+		var xOffset = 120 + 5; 	// NEED TO SET THESE TO NON-LOCAL VARS
+		var yOffset = 40 + 5;	// NEED TO SET THESE TO NON-LOCAL VARS
+
+		var numInput = prompt("Enter number of booths in this col:", "5");
+		if (!numInput) { return; }
+
+		var numBooths = parseInt(numInput);
+
+		for (var i = 0; i < numBooths; ++i) {
+			//addNewBooth();
+			createNewBooth(xOffset, i*yOffset, "unnamed");
+		}
+
+	};
+
+
+	$scope.addNewBoothGrid = function () {
+
+		var xOffset = 120 + 5; 	// NEED TO SET THESE TO NON-LOCAL VARS
+		var yOffset = 40 + 5;	// NEED TO SET THESE TO NON-LOCAL VARS
+
+		var numRowInput = prompt("Enter number of booths in a row:", "4");
+		if (!numRowInput) { return; }
+
+		var numColInput = prompt("Enter number of booths in a col:", "3");
+		if (!numColInput) { return; }
+
+		var numRows = parseInt(numRowInput);
+		var numCols = parseInt(numColInput);
+
+		for (var i = 0; i < numRowInput; ++i) {
+			//addNewBooth();
+			for (var j = 0; j < numColInput; ++j) {
+				createNewBooth(j*xOffset, i*yOffset, "unnamed");
+			}
+		}
+
+	};
+
+
+
+
+
+
+
+
+
+/*
+	var createConnectorsViewModel = function (connectorDataModels, x, parentNode) {
+		var viewModels = [];
+
+		if (connectorDataModels) {
+			for (var i = 0; i < connectorDataModels.length; ++i) {
+				var connectorViewModel = 
+					new flowchart.ConnectorViewModel(connectorDataModels[i], x, flowchart.computeConnectorY(i), parentNode);
+				viewModels.push(connectorViewModel);
+			}
+		}
+
+		return viewModels;
+	};
+
+*/
+
+		$scope.addBoothsFromList = function () {
+
+			// companies
+		var companyNameIDs = [];
+
+companyNameIDs = ["23", "11", "2", "24", "12", "20", "7", "15", "9", ""];
+
+		
+
+
+			//for (var compIdIndex = 0; compIdIndex < this.nodes.length; ++compIdIndex) {
+
+			
+				/*var node = this.nodes[nodeIndex];
+				if (!node.selected()) {
+					// Only retain non-selected nodes.
+					newNodeViewModels.push(node);
+					newNodeDataModels.push(node.data);
+				}
+				else {
+					// Keep track of nodes that were deleted, so their connections can also
+					// be deleted.
+					deletedNodeIds.push(node.data.id);
+				}*/
+
+		//for (var compIdIndex = 0; compIdIndex < companyNameIDs.length; ++compIdIndex) {
+			//}
+
+
+		var xOffset = 120 + 5; 	// NEED TO SET THESE TO NON-LOCAL VARS
+		var yOffset = 40 + 5;	// NEED TO SET THESE TO NON-LOCAL VARS
+
+		/*
+		var numRowInput = prompt("Enter number of booths in a row:", "4");
+		if (!numRowInput) { return; }
+
+		var numColInput = prompt("Enter number of booths in a col:", "3");
+		if (!numColInput) { return; }
+
+
+		var numRows = parseInt(numRowInput);
+		var numCols = parseInt(numColInput);
+		*/
+
+
+		/// i need a ltircky trick here for error checking
+
+		var numRows = 11; //companyNameIDs.length % 2;
+		var numCols = 8; //companyNameIDs.length;
+
+		var compIdIndex = 0;
+
+		// make sure if you dont have evenly filled rows itll be okay
+
+		//for (var compIdIndex = 0; compIdIndex < companyNameIDs.length; ++compIdIndex)
+
+		// TODO: make sure if you dont have ENOUGH rows/cols itll be okay too!
+
+		// TODO: need to go in reverse cuz this way reversed order of booths
+		for (var i = 0; i < numRows; ++i) {
+			//addNewBooth();
+			for (var j = 0; j < numCols && compIdIndex < companyNameIDs.length; ++j) {
+				createNewBooth(j*xOffset, i*yOffset, companyNameIDs[compIdIndex]);
+				++compIdIndex;
+			}
+		}
+
+		
+	};
+
+/*
+        $scope.addBoothsFromList = function () {// 
+
+            // companies
+        //var companyNameIDs = [];
+
+        var boothIds = ["23", "11", "2", "24", "12", "20", "7", "15", "9", ""];
+
+        var xOffset = 120 + 5;  // NEED TO SET THESE TO NON-LOCAL VARS
+        var yOffset = 40 + 5;   // NEED TO SET THESE TO NON-LOCAL VARS
+
+        var numCols = 3; 
+        var numRows = boothIds.length % 3;
+        
+
+        var compIdIndex = 0;
+
+        for (var i = 0; i < numRows; ++i) {
+            for (var j = 0; j < numCols && j < boothIds.length; j++) {
+                makeNewBooth(j*xOffset, i*yOffset, boothIds[j]);
+            }
+        }
+
+    };*/
+
+
+
+	//
+	// Delete all current nodes and connections on chart
+	//
+	$scope.clearAll = function () {
+		$scope.chartViewModel.selectAll();
+		$scope.chartViewModel.deleteSelected();
+	};
+
+
+	//
+	// Set X coordinate for selected items
+	//
+	$scope.setXCoord = function () {
+
+		var xInput = prompt("Enter new x coordinate for selected elements:", "");
+		if (!xInput) { return; }
+		var newXCoord = parseInt(xInput);
+
+		$scope.chartViewModel.setSelectedXCoord(newXCoord);
+	};
+
+
+	//
+	// Set Y coordinate for selected items
+	//
+	$scope.setYCoord = function () {
+
+		var yInput = prompt("Enter new y coordinate for selected elements:", "");
+		if (!yInput) { return; }
+		var newYCoord = parseInt(yInput);
+
+		$scope.chartViewModel.setSelectedYCoord(newYCoord);
+	};
+
+
+
+
+
+
+	//
+	// Add an input connector to selected nodes.
+	//
+	$scope.addNewInputConnector = function () {
+		var connectorName = prompt("Enter a connector name:", "New connector");
+		if (!connectorName) { return; }
+
+		var selectedNodes = $scope.chartViewModel.getSelectedNodes();
+		for (var i = 0; i < selectedNodes.length; ++i) {
+			var node = selectedNodes[i];
+			node.addInputConnector({
+				name: connectorName,
+			});
+		}
+	};
+
+
+	//
+	// Add an input connector to selected nodes.
+	//
+	$scope.addNewInputConnector = function () {
+		var connectorName = prompt("Enter a connector name:", "New connector");
+		if (!connectorName) {
+			return;
+		}
+
+		var selectedNodes = $scope.chartViewModel.getSelectedNodes();
+		for (var i = 0; i < selectedNodes.length; ++i) {
+			var node = selectedNodes[i];
+			node.addInputConnector({
+				name: connectorName,
+			});
+		}
+	};
+
+	//
+	// Add an output connector to selected nodes.
+	//
+	$scope.addNewOutputConnector = function () {
+		var connectorName = prompt("Enter a connector name:", "New connector");
+		if (!connectorName) { return; }
+
+		var selectedNodes = $scope.chartViewModel.getSelectedNodes();
+		for (var i = 0; i < selectedNodes.length; ++i) {
+			var node = selectedNodes[i];
+			node.addOutputConnector({
+				name: connectorName,
+			});
+		}
+	};
+
+	//
+	// Delete selected nodes and connections.
+	//
+	$scope.deleteSelected = function () {
+		$scope.chartViewModel.deleteSelected();
+	};
+
+	//
+	// Create the view-model for the chart and attach to the scope.
+	//
+	$scope.chartViewModel = new flowchart.ChartViewModel(chartDataModel);
+}])
+;
+
+/*
+    var chartDataModel = {"nodes": [
         {
             "name": "fenwal",
             "id": "booth1",
@@ -715,563 +1278,7 @@ angular.module('app', ['flowChart', ])
     ],
     "connections": []
 };
-	
-		/*nodes: [
-			{
-				name: "Example Node 1",
-				id: 0,
-				x: 0,
-				y: 0,
-				inputConnectors: [],
-				outputConnectors: [],
-			},
-
-			{
-				name: "Example Node 2",
-				id: 1,
-				x: 400,
-				y: 200,
-				inputConnectors: [],
-				outputConnectors: [],
-			},
-
-		],
-
-		connections: []
-	};*/
-
-
-	
-	//var floorplanDataModel
-	/*var chartDataModel = {
-	
-		nodes: [
-			{
-				
-			},
-
-			{
-				
-			},
-
-		],
-
-		connections: []
-	};*/
-
-	//
-	// Event handler for key-down on the flowchart.
-	//
-	$scope.keyDown = function (evt) {
-
-		if (evt.keyCode === ctrlKeyCode) {
-
-			ctrlDown = true;
-			evt.stopPropagation();
-			evt.preventDefault();
-		}
-	};
-
-	//
-	// Event handler for key-up on the flowchart.
-	//
-	$scope.keyUp = function (evt) {
-
-		if (evt.keyCode === deleteKeyCode) {
-			//
-			// Delete key.
-			$scope.chartViewModel.deleteSelected();
-		}
-
-		if (evt.keyCode == aKeyCode && ctrlDown) {
-			// 
-			// Ctrl + A
-			$scope.chartViewModel.selectAll();
-		}
-
-		if (evt.keyCode == escKeyCode) {
-			// Escape.
-			$scope.chartViewModel.deselectAll();
-		}
-
-		if (evt.keyCode === ctrlKeyCode) {
-			ctrlDown = false;
-
-			evt.stopPropagation();
-			evt.preventDefault();
-		}
-	};
-
-	
-	//
-	// Selects the next booth id.
-	//
-	var nextBoothID = 2;
-
-   /* $scope.editBoothId = function () {
-        var connectorName = prompt("Enter a booth id # (doesnt work):", "booth");
-        if (!connectorName) { return; }
-
-        var selectedNodes = $scope.chartViewModel.getSelectedNodes();
-        for (var i = 0; i < selectedNodes.length; ++i) {
-            var node = selectedNodes[i];
-            node.id = connectorName;
-        }
-
-
-
-
-    };*/
-
-
-        $scope.makeNewBooth = function (xpos, ypos, boothIDNum) {
-
-        //
-        // Template for a new booth.
-        //
-        var newBoothDataModel = {
-            name: "",
-            id: "booth"+boothIDNum,
-            x: xpos,
-            y: ypos//,
-            //inputConnectors: [],
-           // outputConnectors: [],
-        };
-
-        $scope.chartViewModel.addNode(newBoothDataModel);
-    };
-
-	//
-	// Add a new booth node to the chart.
-	//
-	$scope.addNewBooth = function () {
-
-		var boothName = prompt("Enter a booth name:", "empty booth");
-		if (!boothName) { return; }
-
-		//
-		// Template for a new booth.
-		//
-		var newBoothDataModel = {
-			name: boothName,
-			id: "booth"+nextBoothID++,
-			x: 0,
-			y: 0,
-			inputConnectors: [],
-			outputConnectors: [],
-		};
-
-		$scope.chartViewModel.addNode(newBoothDataModel);
-	};
-
-
-	function createNewBooth(xpos, ypos, boothName) {
-
-		//
-		// Template for a new booth.
-		//
-		/*var newBoothDataModel = {
-			name: boothName,
-			id: "booth"+nextBoothID++,
-			x: xpos,
-			y: ypos//,
-			//inputConnectors: [],
-			//outputConnectors: [],
-		};*/
-
-        //
-        // Template for a new booth.
-        //
-        var newBoothDataModel = {
-            //name: "boothName",
-            id: "booth"+boothName, //nextBoothID++,
-            x: xpos,
-            y: ypos//,
-            //inputConnectors: [],
-            //outputConnectors: [],
-        };
-
-
-		$scope.chartViewModel.addNode(newBoothDataModel);
-	};
-
-	$scope.addNewBoothRow = function () {
-
-		var xOffset = 120 + 5; 	// NEED TO SET THESE TO NON-LOCAL VARS
-		var yOffset = 40 + 5;	// NEED TO SET THESE TO NON-LOCAL VARS
-
-		var numInput = prompt("Enter number of booths in this row:", "3");
-		if (!numInput) { return; }
-
-		var numBooths = parseInt(numInput);
-
-		for (var i = 0; i < numBooths; ++i) {
-			//addNewBooth();
-			createNewBooth(i*xOffset, yOffset, "unnamed");
-		}
-
-	};
-
-	$scope.addNewBoothCol = function () {
-
-		var xOffset = 120 + 5; 	// NEED TO SET THESE TO NON-LOCAL VARS
-		var yOffset = 40 + 5;	// NEED TO SET THESE TO NON-LOCAL VARS
-
-		var numInput = prompt("Enter number of booths in this col:", "5");
-		if (!numInput) { return; }
-
-		var numBooths = parseInt(numInput);
-
-		for (var i = 0; i < numBooths; ++i) {
-			//addNewBooth();
-			createNewBooth(xOffset, i*yOffset, "unnamed");
-		}
-
-	};
-
-
-	$scope.addNewBoothGrid = function () {
-
-		var xOffset = 120 + 5; 	// NEED TO SET THESE TO NON-LOCAL VARS
-		var yOffset = 40 + 5;	// NEED TO SET THESE TO NON-LOCAL VARS
-
-		var numRowInput = prompt("Enter number of booths in a row:", "4");
-		if (!numRowInput) { return; }
-
-		var numColInput = prompt("Enter number of booths in a col:", "3");
-		if (!numColInput) { return; }
-
-		var numRows = parseInt(numRowInput);
-		var numCols = parseInt(numColInput);
-
-		for (var i = 0; i < numRowInput; ++i) {
-			//addNewBooth();
-			for (var j = 0; j < numColInput; ++j) {
-				createNewBooth(j*xOffset, i*yOffset, "unnamed");
-			}
-		}
-
-	};
-
-
-
-
-
-
-
-
-
-/*
-	var createConnectorsViewModel = function (connectorDataModels, x, parentNode) {
-		var viewModels = [];
-
-		if (connectorDataModels) {
-			for (var i = 0; i < connectorDataModels.length; ++i) {
-				var connectorViewModel = 
-					new flowchart.ConnectorViewModel(connectorDataModels[i], x, flowchart.computeConnectorY(i), parentNode);
-				viewModels.push(connectorViewModel);
-			}
-		}
-
-		return viewModels;
-	};
-
 */
-
-		$scope.addBoothsFromList = function () {
-
-			// companies
-		var companyNameIDs = [];
-		/*companyNameIDs.push("3m");
-		companyNameIDs.push("accenture");
-		companyNameIDs.push("alcatel-lucent");
-		companyNameIDs.push("boeing");
-		companyNameIDs.push("fenwal");*/
-
-		/*
-companyNameIDs.push("fenwal");
-companyNameIDs.push("carsdotcom");
-companyNameIDs.push("fti");
-companyNameIDs.push("bemis");
-companyNameIDs.push("epic");
-companyNameIDs.push("mathworks");
-companyNameIDs.push("boeing");
-companyNameIDs.push("kiewit");
-companyNameIDs.push("alcatel-lucent");
-companyNameIDs.push("imc");
-companyNameIDs.push("mwrdgc");
-companyNameIDs.push("cme-group");
-companyNameIDs.push("pratt-whitney");
-companyNameIDs.push("gtl");
-companyNameIDs.push("pwc");
-companyNameIDs.push("itw");
-companyNameIDs.push("trading-tech");
-companyNameIDs.push("sbb");
-companyNameIDs.push("outerwall");
-companyNameIDs.push("com-ed");
-companyNameIDs.push("chopper-trading");
-companyNameIDs.push("citadel");
-companyNameIDs.push("clarity");
-companyNameIDs.push("yahoo");
-companyNameIDs.push("gdeb");
-companyNameIDs.push("wolverine-trading");
-companyNameIDs.push("mta");
-companyNameIDs.push("mbhb-llc");
-companyNameIDs.push("think-big");
-companyNameIDs.push("here-nokia");
-companyNameIDs.push("etherios");
-companyNameIDs.push("lend-lease");
-companyNameIDs.push("schneider-electric");
-companyNameIDs.push("zebra-tech");
-companyNameIDs.push("ucc");
-companyNameIDs.push("northwestern-mutual");
-companyNameIDs.push("idot");
-companyNameIDs.push("pariveda");
-companyNameIDs.push("continental");
-companyNameIDs.push("zs-associates");
-companyNameIDs.push("ida");
-companyNameIDs.push("factset");
-companyNameIDs.push("altec");
-companyNameIDs.push("chrylser-group");
-companyNameIDs.push("adage-tech");
-companyNameIDs.push("denso");
-companyNameIDs.push("environ");
-companyNameIDs.push("ama");
-companyNameIDs.push("wrigley");
-companyNameIDs.push("sapient-nitro");
-companyNameIDs.push("hfz-llc");
-companyNameIDs.push("avantcredit");
-companyNameIDs.push("spacex");
-companyNameIDs.push("dmc-inc");
-companyNameIDs.push("pepsico");
-companyNameIDs.push("wms");
-companyNameIDs.push("nielsen");
-companyNameIDs.push("dropbox");
-companyNameIDs.push("thoughtworks");
-companyNameIDs.push("allstate");
-companyNameIDs.push("deloitte");
-companyNameIDs.push("oracle");
-companyNameIDs.push("ge");
-companyNameIDs.push("mozilla");
-companyNameIDs.push("tata");
-companyNameIDs.push("hospira");
-companyNameIDs.push("pec");
-companyNameIDs.push("readyforce");
-companyNameIDs.push("accenture");
-companyNameIDs.push("shmoop");
-companyNameIDs.push("ford");
-companyNameIDs.push("united-airlines");
-companyNameIDs.push("goodyear");
-companyNameIDs.push("at-t");
-companyNameIDs.push("s-c-electric");
-companyNameIDs.push("exxon-mobil");
-companyNameIDs.push("facebook");
-companyNameIDs.push("discover");
-companyNameIDs.push("3m");
-companyNameIDs.push("baxter");
-companyNameIDs.push("p-g");
-companyNameIDs.push("northrop-grumman");
-companyNameIDs.push("gaf");
-companyNameIDs.push("microsoft");
-
-companyNameIDs.empty();*/
-companyNameIDs = ["23", "11", "2", "24", "12", "20", "7", "15", "9", ""];
-
-		
-
-
-			//for (var compIdIndex = 0; compIdIndex < this.nodes.length; ++compIdIndex) {
-
-			
-				/*var node = this.nodes[nodeIndex];
-				if (!node.selected()) {
-					// Only retain non-selected nodes.
-					newNodeViewModels.push(node);
-					newNodeDataModels.push(node.data);
-				}
-				else {
-					// Keep track of nodes that were deleted, so their connections can also
-					// be deleted.
-					deletedNodeIds.push(node.data.id);
-				}*/
-
-		//for (var compIdIndex = 0; compIdIndex < companyNameIDs.length; ++compIdIndex) {
-			//}
-
-
-		var xOffset = 120 + 5; 	// NEED TO SET THESE TO NON-LOCAL VARS
-		var yOffset = 40 + 5;	// NEED TO SET THESE TO NON-LOCAL VARS
-
-		/*
-		var numRowInput = prompt("Enter number of booths in a row:", "4");
-		if (!numRowInput) { return; }
-
-		var numColInput = prompt("Enter number of booths in a col:", "3");
-		if (!numColInput) { return; }
-
-
-		var numRows = parseInt(numRowInput);
-		var numCols = parseInt(numColInput);
-		*/
-
-
-		/// i need a ltircky trick here for error checking
-
-		var numRows = 11; //companyNameIDs.length % 2;
-		var numCols = 8; //companyNameIDs.length;
-
-		var compIdIndex = 0;
-
-		// make sure if you dont have evenly filled rows itll be okay
-
-		//for (var compIdIndex = 0; compIdIndex < companyNameIDs.length; ++compIdIndex)
-
-		// TODO: make sure if you dont have ENOUGH rows/cols itll be okay too!
-
-		// TODO: need to go in reverse cuz this way reversed order of booths
-		for (var i = 0; i < numRows; ++i) {
-			//addNewBooth();
-			for (var j = 0; j < numCols && compIdIndex < companyNameIDs.length; ++j) {
-				createNewBooth(j*xOffset, i*yOffset, companyNameIDs[compIdIndex]);
-				++compIdIndex;
-			}
-		}
-
-		
-	};
-
-/*
-        $scope.addBoothsFromList = function () {// 
-
-            // companies
-        //var companyNameIDs = [];
-
-        var boothIds = ["23", "11", "2", "24", "12", "20", "7", "15", "9", ""];
-
-        var xOffset = 120 + 5;  // NEED TO SET THESE TO NON-LOCAL VARS
-        var yOffset = 40 + 5;   // NEED TO SET THESE TO NON-LOCAL VARS
-
-        var numCols = 3; 
-        var numRows = boothIds.length % 3;
-        
-
-        var compIdIndex = 0;
-
-        for (var i = 0; i < numRows; ++i) {
-            for (var j = 0; j < numCols && j < boothIds.length; j++) {
-                makeNewBooth(j*xOffset, i*yOffset, boothIds[j]);
-            }
-        }
-
-    };*/
-
-
-
-	//
-	// Delete all current nodes and connections on chart
-	//
-	$scope.clearAll = function () {
-		$scope.chartViewModel.selectAll();
-		$scope.chartViewModel.deleteSelected();
-	};
-
-
-	//
-	// Set X coordinate for selected items
-	//
-	$scope.setXCoord = function () {
-
-		var xInput = prompt("Enter new x coordinate for selected elements:", "");
-		if (!xInput) { return; }
-		var newXCoord = parseInt(xInput);
-
-		$scope.chartViewModel.setSelectedXCoord(newXCoord);
-	};
-
-
-	//
-	// Set Y coordinate for selected items
-	//
-	$scope.setYCoord = function () {
-
-		var yInput = prompt("Enter new y coordinate for selected elements:", "");
-		if (!yInput) { return; }
-		var newYCoord = parseInt(yInput);
-
-		$scope.chartViewModel.setSelectedYCoord(newYCoord);
-	};
-
-
-
-
-
-
-	//
-	// Add an input connector to selected nodes.
-	//
-	$scope.addNewInputConnector = function () {
-		var connectorName = prompt("Enter a connector name:", "New connector");
-		if (!connectorName) { return; }
-
-		var selectedNodes = $scope.chartViewModel.getSelectedNodes();
-		for (var i = 0; i < selectedNodes.length; ++i) {
-			var node = selectedNodes[i];
-			node.addInputConnector({
-				name: connectorName,
-			});
-		}
-	};
-
-
-	//
-	// Add an input connector to selected nodes.
-	//
-	$scope.addNewInputConnector = function () {
-		var connectorName = prompt("Enter a connector name:", "New connector");
-		if (!connectorName) {
-			return;
-		}
-
-		var selectedNodes = $scope.chartViewModel.getSelectedNodes();
-		for (var i = 0; i < selectedNodes.length; ++i) {
-			var node = selectedNodes[i];
-			node.addInputConnector({
-				name: connectorName,
-			});
-		}
-	};
-
-	//
-	// Add an output connector to selected nodes.
-	//
-	$scope.addNewOutputConnector = function () {
-		var connectorName = prompt("Enter a connector name:", "New connector");
-		if (!connectorName) { return; }
-
-		var selectedNodes = $scope.chartViewModel.getSelectedNodes();
-		for (var i = 0; i < selectedNodes.length; ++i) {
-			var node = selectedNodes[i];
-			node.addOutputConnector({
-				name: connectorName,
-			});
-		}
-	};
-
-	//
-	// Delete selected nodes and connections.
-	//
-	$scope.deleteSelected = function () {
-		$scope.chartViewModel.deleteSelected();
-	};
-
-	//
-	// Create the view-model for the chart and attach to the scope.
-	//
-	$scope.chartViewModel = new flowchart.ChartViewModel(chartDataModel);
-}])
-;
-
-
 
 
 
@@ -1405,3 +1412,97 @@ companyNameIDs = ["23", "11", "2", "24", "12", "20", "7", "15", "9", ""];
 	};*/
 
 //");
+
+        /*companyNameIDs.push("3m");
+        companyNameIDs.push("accenture");
+        companyNameIDs.push("alcatel-lucent");
+        companyNameIDs.push("boeing");
+        companyNameIDs.push("fenwal");*/
+
+        /*
+companyNameIDs.push("fenwal");
+companyNameIDs.push("carsdotcom");
+companyNameIDs.push("fti");
+companyNameIDs.push("bemis");
+companyNameIDs.push("epic");
+companyNameIDs.push("mathworks");
+companyNameIDs.push("boeing");
+companyNameIDs.push("kiewit");
+companyNameIDs.push("alcatel-lucent");
+companyNameIDs.push("imc");
+companyNameIDs.push("mwrdgc");
+companyNameIDs.push("cme-group");
+companyNameIDs.push("pratt-whitney");
+companyNameIDs.push("gtl");
+companyNameIDs.push("pwc");
+companyNameIDs.push("itw");
+companyNameIDs.push("trading-tech");
+companyNameIDs.push("sbb");
+companyNameIDs.push("outerwall");
+companyNameIDs.push("com-ed");
+companyNameIDs.push("chopper-trading");
+companyNameIDs.push("citadel");
+companyNameIDs.push("clarity");
+companyNameIDs.push("yahoo");
+companyNameIDs.push("gdeb");
+companyNameIDs.push("wolverine-trading");
+companyNameIDs.push("mta");
+companyNameIDs.push("mbhb-llc");
+companyNameIDs.push("think-big");
+companyNameIDs.push("here-nokia");
+companyNameIDs.push("etherios");
+companyNameIDs.push("lend-lease");
+companyNameIDs.push("schneider-electric");
+companyNameIDs.push("zebra-tech");
+companyNameIDs.push("ucc");
+companyNameIDs.push("northwestern-mutual");
+companyNameIDs.push("idot");
+companyNameIDs.push("pariveda");
+companyNameIDs.push("continental");
+companyNameIDs.push("zs-associates");
+companyNameIDs.push("ida");
+companyNameIDs.push("factset");
+companyNameIDs.push("altec");
+companyNameIDs.push("chrylser-group");
+companyNameIDs.push("adage-tech");
+companyNameIDs.push("denso");
+companyNameIDs.push("environ");
+companyNameIDs.push("ama");
+companyNameIDs.push("wrigley");
+companyNameIDs.push("sapient-nitro");
+companyNameIDs.push("hfz-llc");
+companyNameIDs.push("avantcredit");
+companyNameIDs.push("spacex");
+companyNameIDs.push("dmc-inc");
+companyNameIDs.push("pepsico");
+companyNameIDs.push("wms");
+companyNameIDs.push("nielsen");
+companyNameIDs.push("dropbox");
+companyNameIDs.push("thoughtworks");
+companyNameIDs.push("allstate");
+companyNameIDs.push("deloitte");
+companyNameIDs.push("oracle");
+companyNameIDs.push("ge");
+companyNameIDs.push("mozilla");
+companyNameIDs.push("tata");
+companyNameIDs.push("hospira");
+companyNameIDs.push("pec");
+companyNameIDs.push("readyforce");
+companyNameIDs.push("accenture");
+companyNameIDs.push("shmoop");
+companyNameIDs.push("ford");
+companyNameIDs.push("united-airlines");
+companyNameIDs.push("goodyear");
+companyNameIDs.push("at-t");
+companyNameIDs.push("s-c-electric");
+companyNameIDs.push("exxon-mobil");
+companyNameIDs.push("facebook");
+companyNameIDs.push("discover");
+companyNameIDs.push("3m");
+companyNameIDs.push("baxter");
+companyNameIDs.push("p-g");
+companyNameIDs.push("northrop-grumman");
+companyNameIDs.push("gaf");
+companyNameIDs.push("microsoft");
+
+companyNameIDs.empty();*/

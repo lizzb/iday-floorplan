@@ -35,21 +35,66 @@ Styles for nodes and connectors.
 
 */
 
+
+/*
+b5b5b5
+92dce0
+0092d7
+3ec303
+92dce0 lightblue
+0092d7 brightblue
+ee8d09*/
+
 .node-rect {
 	stroke: black;
 	stroke-width: 2;
+	
+}
+
+.active-node-rect {
+	stroke: black;
+	stroke-width: 2;
+}
+
+.inactive-node-rect {
+	stroke: black;
+	stroke-width: 2;
+	stroke: #b5b5b5;
 }
 
 .mouseover-node-rect {
 	stroke: black;
 	stroke-width: 4;
+	fill: #eee;
+	stroke: #92dce0;
+
 }
 
 .selected-node-rect {
 	stroke: red;
 	stroke-width: 3;
-}
+	fill: #a6ffff;
+	stroke: #0092d7;
 
+}
+/*
+softwaremill
+5bb125 green
+eb65a0softpink
+73c5e1 lighterblue
+enterrpise foundation
+fffff
+fcdf15 yellow
+d40e52 redpink
+0b99bc brighttealblue
+3c3c3c charcoal
+PAW STUDIO
+http://www.onextrapixel.com/2013/10/25/40-stunning-website-designs-with-great-color-schemes/
+b5b5b5 grey
+92dce0 lightblue
+0092d7 brightblue
+3ec303brightgreen4
+ee8d09
 .connector-circle {
     fill: white;
     stroke: black;
@@ -61,10 +106,11 @@ Styles for nodes and connectors.
     stroke: black;
     stroke-width: 3;
 }
+*/
 
 /*
 Style for connections.
-*/
+
 
 .connection {
 }
@@ -97,7 +143,7 @@ Style for connections.
 
 .mouseover-connection-endpoint {
 	fill: gray;
-}
+}*/
 
 /*
 Style for the connection being dragged out.
@@ -123,6 +169,7 @@ The element (in this case the SVG element) that contains the draggable elements.
 
 .draggable-container {
 	border: solid 1px blue;
+	border: solid 1.5px #0b99bc;
 }
 
 /*
@@ -131,8 +178,10 @@ Drag selection rectangle.
 
 .drag-selection-rect {
 	stroke: blue;
-	stroke-width: 2;
+	stroke-width: 2.5;
 	fill: transparent;
+/*d40e52*/
+	stroke: #ff9900;
 }
 
 
@@ -140,11 +189,14 @@ Drag selection rectangle.
 
 
 
+.container {width: 100%; overflow: hidden;}
 
 /* pulled these out of inline formatting */
 
 #json-textarea {
-width: 35%; /*600px;*/
+width: 30%; /*600px;*/
+/*max-width: 220px;*/
+width: 27%;
 float: left;
 }
 
@@ -152,16 +204,21 @@ float: left;
 width: 100%;
 height: 100%;
 color: indigo;
+padding: 15px 5px;
 }
 
 #flowchart-controls {
- 	/*margin-left: 600px;*/
- 	margin-left: 35%;
+ 	/*margin-left: 600px; max-margin-left: 220px;*/
+ 	/*margin-left: 35%;*/
+ 	margin-left: 27%;
+ 	padding: 7px;
+ 	
 }
 
-.container {width: 100%; overflow: hidden;}
 
 /* is this a valid way to declare something?? */
 flow-chart { 
-	margin: 5px; width: 100%; height: 100%;
+	margin: 5px;
+	width: 100%;
+	/*height: 100%;*/
 }
