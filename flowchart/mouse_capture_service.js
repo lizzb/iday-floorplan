@@ -44,7 +44,9 @@ angular.module('mouseCapture', [])
 		// Register an element to use as the mouse capture element instead of 
 		// the default which is the document.
 		//
-		registerElement: function(element) {  $element = element;  }, // JQUERY
+		registerElement: function(element) {
+			$element = element;
+		},
 
 		//
 		// Acquire the 'mouse capture'.
@@ -60,9 +62,9 @@ angular.module('mouseCapture', [])
 			mouseCaptureConfig = config;
 
 	  		// 
-	  		// In response to the mousedown event
-	  		// register handlers for mousemove and mouseup 
+	  		// In response to the mousedown event register handlers for mousemove and mouseup 
 	  		// during 'mouse capture'.
+	  		//
   			$element.mousemove(mouseMove);
   			$element.mouseup(mouseUp);
 		},
@@ -100,7 +102,8 @@ angular.module('mouseCapture', [])
   	restrict: 'A',
 
   	controller: function($scope, $element, $attrs, mouseCapture) {
- 
+
+  		// 
   		// Register the directives element as the mouse capture element.
   		mouseCapture.registerElement($element);
   	},

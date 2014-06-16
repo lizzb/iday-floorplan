@@ -40,11 +40,9 @@ Styles for nodes and connectors.
 	stroke-width: 2;
 }
 
-/* Mouseover styles / hover = tap on mobile ?? */
 .mouseover-node-rect {
 	stroke: black;
 	stroke-width: 4;
-	fill: gray;
 }
 
 .selected-node-rect {
@@ -144,3 +142,26 @@ Drag selection rectangle.
 
 
 /* pulled these out of inline formatting */
+
+#json-textarea {
+width: 35%; /*600px;*/
+float: left;
+}
+
+#json-textarea textarea {
+width: 100%;
+height: 100%;
+color: indigo;
+}
+
+#flowchart-controls {
+ 	/*margin-left: 600px;*/
+ 	margin-left: 35%;
+}
+
+.container {width: 100%; overflow: hidden;}
+
+/* is this a valid way to declare something?? */
+flow-chart { 
+	margin: 5px; width: 100%; height: 100%;
+}
