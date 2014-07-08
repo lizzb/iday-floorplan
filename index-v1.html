@@ -1,0 +1,159 @@
+<html>
+	<head>
+		<title>AngularJS-FlowChart</title>
+
+		<!-- 
+		LiveReload support.
+		http://livereload.com/
+		-->
+		<!--script src="http://localhost:35729/livereload.js?snipver=1"></script-->
+
+<style>
+
+
+</style>
+
+	</head>	
+	<body 
+		ng-app="app" 
+		ng-controller="AppCtrl"
+		mouse-capture
+		ng-keydown="keyDown($event)"
+		ng-keyup="keyUp($event)"
+		>
+
+		<div class="container">
+
+		    <div id="json-textarea"> 
+				<textarea chart-json-edit view-model="chartViewModel"></textarea>
+			</div>
+
+			<div id="flowchart-controls">
+		    <em> Hold control key to select multiple, or drag select around elements </em>
+
+    			<!--button ng-click="addNewNode()"
+    				title="Add a new node to the chart">
+    				<br> Add Node <br><br>
+				</button addBoothsFromList-->
+
+				
+
+				<!--button ng-click="editBoothId()"
+    				title="">
+    				<br> Edit Booth ID <br><br>
+				</button-->
+
+				<button ng-click="addNewBoothGrid()"
+    				title="">
+    				<br> Add Grid of Booths <br><br>
+				</button>
+
+				<button ng-click="addBoothsFromList()"
+    				title="">
+    				<br> Add Booths from coded list <br><br>
+				</button>
+
+				<!--button ng-click="addBoothsFromList()"
+    				title="">
+    				<br> Add Grid of Booths from input list <br><br>
+				</button-->
+
+				<!--button ng-click="addNewBoothRow()"
+    				title="">
+    				<br> Add Row of Booths <br><br>
+				</button>
+
+				<button ng-click="addNewBoothCol()"
+    				title="">
+    				<br> Add Column of Booths <br><br>
+				</button-->
+
+				<button ng-click="addNewBooth()"
+    				title="Add a new booth to the chart">
+    				<br> Add Booth <br><br>
+				</button>
+
+				<button ng-click="clearAll()"
+    				title="Clear all booths on chart">
+    				<br> Clear all booths <br><br>
+				</button>
+
+				<button ng-click="setXCoord()"
+    				title="Set the x value for selected elements">
+    				<br> Set x position for selected item(s) <br>
+				</button> 
+
+				<button ng-click="setYCoord()"
+    				title="Set the y value for selected elements">
+    				<br> Set y position for selected item(s) <br>
+				</button>
+
+
+
+				<!--
+    			<button ng-click="addNewInputConnector()"
+    				ng-disabled="chartViewModel.getSelectedNodes().length == 0"
+    				title="Add a new input connector to the selected node">
+    				<br> Add Input Connector <br><br>
+				</button>
+
+    			<button ng-click="addNewOutputConnector()"
+    				ng-disabled="chartViewModel.getSelectedNodes().length == 0"
+    				title="Add a new output connector to the selected node">
+    				<br> Add Output Connector <br><br>
+				</button>
+				-->
+
+    			<button ng-click="deleteSelected()"
+    				ng-disabled="chartViewModel.getSelectedNodes().length == 0 && chartViewModel.getSelectedConnections().length == 0"
+    				title="Delete selected nodes and connections">
+    				<br> Delete Selected <br><br>
+				</button>
+
+		    <!--div id="flowchart-controls">
+
+    			<button title="Add a new node to the chart" ng-click="addNewNode()">
+    				Add Node
+				</button>
+
+    			<button title="Add a new input connector to the selected node"
+    				ng-click="addNewInputConnector()"
+    				ng-disabled="chartViewModel.getSelectedNodes().length == 0">
+    				Add Input Connector
+				</button>
+
+    			<button title="Add a new output connector to the selected node"
+    				ng-click="addNewOutputConnector()"
+    				ng-disabled="chartViewModel.getSelectedNodes().length == 0">
+    				Add Output Connector
+				</button>
+
+    			<button title="Delete selected nodes and connections"
+    				ng-click="deleteSelected()"
+    				ng-disabled="chartViewModel.getSelectedNodes().length == 0 && chartViewModel.getSelectedConnections().length == 0">
+    				Delete Selected
+				</button-->
+
+				<!-- This custom element defines the flowchart. -->
+			    <flow-chart chart="chartViewModel"></flow-chart>
+		    </div>
+		</div>
+
+		<link rel="stylesheet" type="text/css" href="app.css">
+
+		<!-- Library code. -->
+		<script src="lib/jquery-2.0.2.js"></script>
+		<script src="lib/angular.js"></script>
+
+		<!-- Flowchart code. -->
+		<!--script src="debug.js"></script-->
+		<script src="flowchart/svg_class.js"></script>
+		<script src="flowchart/mouse_capture_service.js"></script>
+		<script src="flowchart/dragging_service.js"></script>
+		<script src="flowchart/flowchart_viewmodel.js"></script>
+		<script src="flowchart/flowchart_directive.js"></script>
+
+		<!-- App code. -->
+		<script src="app.js"></script>
+	</body>
+</html>
