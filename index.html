@@ -30,6 +30,42 @@
 			<div id="flowchart-controls">
 		    <em> Hold control key to select multiple, or drag select around elements </em>
 
+		    <br>
+
+		    <button ng-click="addBoothsFromList()"
+    				title="">
+    				<br>Add Booths from list<br>of company name IDs<br><br>
+			</button>
+
+
+
+
+				<button ng-click="setXCoord()"
+    				title="Set the x value for selected elements">
+    				<br> Set x position<br>for selected item(s) <br><br>
+				</button> 
+
+				<button ng-click="setYCoord()"
+    				title="Set the y value for selected elements">
+    				<br> Set y position<br>for selected item(s) <br><br>
+				</button>
+
+
+
+    			<!--button ng-click="deleteSelected()"
+    				ng-disabled="chartViewModel.getSelectedNodes().length == 0 && chartViewModel.getSelectedConnections().length == 0"
+    				title="Delete selected nodes and connections">
+    				<br> Delete Selected <br><br>
+				</button-->
+
+
+			<button ng-click="clearAll()"
+    				title="Clear all booths on chart">
+    				<br><br> Clear all booths <br><br>
+				</button>
+
+
+
     			<!--button ng-click="addNewNode()"
     				title="Add a new node to the chart">
     				<br> Add Node <br><br>
@@ -40,6 +76,10 @@
     				<br> Edit Booth ID <br><br>
 				</button-->
 
+
+
+				<!--
+
 				<button ng-click="addNewBoothGrid()"
     				title="">
     				<br> Add Grid of Booths <br><br>
@@ -49,6 +89,10 @@
     				title="">
     				<br> Add Booths from coded list <br><br>
 				</button>
+
+				-->
+
+
 
 				<!--button ng-click="addBoothsFromList()" title="">
     				<br> Add Grid of Booths from input list <br><br>
@@ -62,6 +106,11 @@
     				<br> Add Column of Booths <br><br>
 				</button-->
 
+
+
+
+
+				<!--
 				<button ng-click="addNewBooth()"
     				title="Add a new booth to the chart">
     				<br> Add Booth <br><br>
@@ -89,6 +138,13 @@
     				title="Delete selected nodes and connections">
     				<br> Delete Selected <br><br>
 				</button>
+
+				-->
+
+
+
+
+
 
 		    <!--
 
