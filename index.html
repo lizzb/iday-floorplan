@@ -1,7 +1,6 @@
 <html>
 	<head>
-		<title>AngularJS-FlowChart</title>
-
+		<title>AngularJS-FloorPlan</title>
 		<!-- 
 		LiveReload support.
 		http://livereload.com/
@@ -35,11 +34,9 @@
     				title="Add a new node to the chart">
     				<br> Add Node <br><br>
 				</button addBoothsFromList-->
-
 				
 
-				<!--button ng-click="editBoothId()"
-    				title="">
+				<!--button ng-click="editBoothId()" title="">
     				<br> Edit Booth ID <br><br>
 				</button-->
 
@@ -53,18 +50,15 @@
     				<br> Add Booths from coded list <br><br>
 				</button>
 
-				<!--button ng-click="addBoothsFromList()"
-    				title="">
+				<!--button ng-click="addBoothsFromList()" title="">
     				<br> Add Grid of Booths from input list <br><br>
 				</button-->
 
-				<!--button ng-click="addNewBoothRow()"
-    				title="">
+				<!--button ng-click="addNewBoothRow()" title="">
     				<br> Add Row of Booths <br><br>
 				</button>
 
-				<button ng-click="addNewBoothCol()"
-    				title="">
+				<button ng-click="addNewBoothCol()" title="">
     				<br> Add Column of Booths <br><br>
 				</button-->
 
@@ -90,31 +84,13 @@
 
 
 
-				<!--
-    			<button ng-click="addNewInputConnector()"
-    				ng-disabled="chartViewModel.getSelectedNodes().length == 0"
-    				title="Add a new input connector to the selected node">
-    				<br> Add Input Connector <br><br>
-				</button>
-
-    			<button ng-click="addNewOutputConnector()"
-    				ng-disabled="chartViewModel.getSelectedNodes().length == 0"
-    				title="Add a new output connector to the selected node">
-    				<br> Add Output Connector <br><br>
-				</button>
-				-->
-
     			<button ng-click="deleteSelected()"
     				ng-disabled="chartViewModel.getSelectedNodes().length == 0 && chartViewModel.getSelectedConnections().length == 0"
     				title="Delete selected nodes and connections">
     				<br> Delete Selected <br><br>
 				</button>
 
-		    <!--div id="flowchart-controls">
-
-    			<button title="Add a new node to the chart" ng-click="addNewNode()">
-    				Add Node
-				</button>
+		    <!--
 
     			<button title="Add a new input connector to the selected node"
     				ng-click="addNewInputConnector()"
@@ -134,8 +110,10 @@
     				Delete Selected
 				</button-->
 
+
 				<!-- This custom element defines the flowchart. -->
 			    <flow-chart chart="chartViewModel"></flow-chart>
+
 		    </div>
 		</div>
 
