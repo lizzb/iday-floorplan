@@ -21,6 +21,7 @@
 
         .boothId {font-size: 11px;}
         .compId {font-size: 14px;}
+        .compLogo {width: 20px; height: 20px;}
   </style>
 
   <!--script type="text/ecmascript">
@@ -104,16 +105,22 @@ THIS IS NOW BEING CALLED BUT IT DOESNT THINK IT IS DEFINED
       >
     </rect>
 
-    <text class="compId"
+    <!--text class="compId"
       ng-attr-x="{{node.width()/2}}"
       y="25"
       text-anchor="middle"
       alignment-baseline="middle"
       >
+      {{node.name()}}
       {{node.id()}}
-    </text>
+    </text-->
 
-    <!--text class="boothId"
+<!-- node.name or node.id-->
+
+<!-- CHANGE APPEARANCE OF BOOTH DRAGGABLES -->
+
+    <!-- DISPLAY BOOTH# (smaller text) with boothId class style-->
+    <text class="boothId"
       ng-attr-x="{{node.width()/2}}"
       y="12"
       text-anchor="middle"
@@ -121,6 +128,8 @@ THIS IS NOW BEING CALLED BUT IT DOESNT THINK IT IS DEFINED
       >
       {{node.id()}}
     </text>
+
+     <!-- DISPLAY COMPID name with compId class style-->
     <text class="compId"
       ng-attr-x="{{node.width()/2}}"
       y="25"
@@ -128,7 +137,10 @@ THIS IS NOW BEING CALLED BUT IT DOESNT THINK IT IS DEFINED
       alignment-baseline="middle"
       >
       {{node.name()}}
-    </text-->
+    </text>
+
+    <image class="compLogo" x="2" y="2" width="20" height="20"
+     xlink:href="http://lizzb.github.io/399/app/img/logos/3m-square.png" />
 
     <g
       ng-repeat="connector in node.inputConnectors"
