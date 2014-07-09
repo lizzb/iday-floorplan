@@ -3,6 +3,7 @@
   xmlns="http://www.w3.org/2000/svg"
   ng-mousedown="mouseDown($event)"
   ng-mousemove="mouseMove($event)"  
+  preserveAspectRatio="xMidYMid meet"
   >
     <style>
     .caption{
@@ -21,7 +22,7 @@
 
         .boothId {font-size: 11px;}
         .compId {font-size: 14px;}
-        .compLogo {width: 20px; height: 20px;}
+        /*.compLogo {width: 40px; height: 40px;} */
   </style>
 
   <!--script type="text/ecmascript">
@@ -145,7 +146,7 @@ THIS IS NOW BEING CALLED BUT IT DOESNT THINK IT IS DEFINED
 
     <!--svg id="viewport" class="viewport" width="100%" height="100%" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"-->
     <!--image x="5" y="5" width="30" height="30" ng-xlink-href="http://lizzb.github.io/399/app/img/logos/{{node.name()}}-square.png" xlink:href="http://placehold.it/30x30" /-->
-    <image x="0" y="0" width="20" height="20" ng-xlink-href="http://lizzb.github.io/399/app/img/logos/{{node.name()}}-square.png" xlink:href="" />
+    <image x="0" y="0" width="20" height="20" class="compLogo" ng-xlink-href="http://lizzb.github.io/399/app/img/logos/{{node.name()}}-square.png" xlink:href="" />
 
    
 
