@@ -1,0 +1,134 @@
+<svg 
+  class="draggable-container"
+  xmlns="http://www.w3.org/2000/svg"
+  ng-mousedown="mouseDown($event)"
+  ng-mousemove="mouseMove($event)"  
+  viewBox="0 0 375 1000"
+  preserveAspectRatio="xMidYMid meet"
+  >
+  <!-- need to figure out how to calculate the viewport and aspect ratio to automatically scale corectly or resize or whatever -->
+   <!--svg id="viewport" class="viewport" width="100%" height="100%" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"-->
+    <style>
+    .caption{
+  font-size: 14px;
+  font-family: Georgia, serif;
+    }
+    .tooltip{
+  font-size: 12px;
+    }
+    .tooltip_bg{
+  fill: white;
+  stroke: black;
+  stroke-width: 1;
+  opacity: 0.85;
+    }
+
+        .boothId {font-size: 11px;}
+        .compId {font-size: 14px;}
+        /*.compLogo {width: 40px; height: 40px;} */
+  </style>
+
+  <!--
+//http://www.petercollingridge.co.uk/book/export/html/437
+
+      tooltip = svgDocument.getElementById('tooltip');
+      tooltip_bg = svgDocument.getElementById('tooltip_bg');
+  }
+-->
+  <defs>
+    
+  </defs>
+  <g
+    ng-repeat="node in chart.nodes"
+    ng-mousedown="nodeMouseDown($event, node)"
+    ng-attr-transform="translate({{node.x()}}, {{node.y()}})"
+    >
+    <rect 
+      ng-attr-class="{{node.selected() && 'selected-node-rect' || (node == mouseOverNode && 'mouseover-node-rect' || 'node-rect')}}"
+      ng-attr-ry="{{node.ry()}}" 
+      ng-attr-rx="{{node.rx()}}" 
+      x="0" 
+      y="0" 
+      ng-attr-width="{{node.width()}}" 
+      ng-attr-height="{{node.height()}}" 
+      fill="#d0d0e5"
+      >
+    </rect>
+
+
+<!-- node.name or node.id-->
+
+<!-- CHANGE APPEARANCE OF BOOTH DRAGGABLES -->
+
+    <!-- DISPLAY BOOTH# (smaller text) with boothId class style-->
+    <text class="boothId"
+      ng-attr-x="{{node.width()/2}}"
+      y="12"
+      text-anchor="middle"
+      alignment-baseline="middle"
+      >
+      {{node.id()}}
+    </text>
+
+     <!-- DISPLAY COMPID name with compId class style-->
+    <text class="compId"
+      ng-attr-x="{{node.width()/2}}"
+      y="25"
+      text-anchor="middle"
+      alignment-baseline="middle"
+      >
+      {{node.name()}}
+    </text>
+
+    <!--image class="compLogo" x="2" y="2" width="20" height="20"
+    xlink:href="http://lizzb.github.io/399/app/img/logos/3m-square.png"
+    ng-xlink-href="http://lizzb.github.io/399/app/img/logos/{{node.name()}}-square.png" /-->
+
+   
+    <!--image x="5" y="5" width="30" height="30" ng-xlink-href="http://lizzb.github.io/399/app/img/logos/{{node.name()}}-square.png" xlink:href="http://placehold.it/30x30" /-->
+    <image x="0" y="0" width="20" height="20" class="compLogo" ng-xlink-href="http://lizzb.github.io/399/app/img/logos/{{node.name()}}-square.png" xlink:href="" />
+
+   
+
+    <g
+      ng-repeat="connector in node.inputConnectors"
+      ng-mousedown="connectorMouseDown($event, node, connector, $index, true)"
+      class="connector input-connector"
+      >
+      <text
+        ng-attr-x="{{connector.x() + 20}}"
+        ng-attr-y="{{connector.y()}}"
+        text-anchor="left"
+        alignment-baseline="middle"
+        >
+        {{connector.name()}}
+      </text>
+      
+      <circle       
+        ng-attr-class="{{connector == mouseOverConnector && 'mouseover-connector-circle' || 'connector-circle'}}"
+        ng-attr-r="{{connectorSize}}" 
+        ng-attr-cx="{{connector.x()}}"
+        ng-attr-cy="{{connector.y()}}"
+        />
+    </g>
+
+      <rect class="tooltip_bg" id="tooltip_bg"
+      x="0" y="0" rx="4" ry="4"
+      width="55" height="17" visibility="hidden"/>
+  <text class="tooltip" id="tooltip"
+      x="0" y="0" visibility="hidden">Tooltip</text>
+  </g>
+    
+
+
+  <rect
+      ng-if="dragSelecting"
+      class="drag-selection-rect"
+      ng-attr-x="{{dragSelectionRect.x}}"
+      ng-attr-y="{{dragSelectionRect.y}}"
+      ng-attr-width="{{dragSelectionRect.width}}"
+      ng-attr-height="{{dragSelectionRect.height}}"
+    >
+  </rect>
+  
+</svg>
