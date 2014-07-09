@@ -16,6 +16,9 @@ angular.module('app', ['flowChart', ])
 	return prompt;
 })
 
+
+
+
 //
 // Application controller.
 //
@@ -44,7 +47,7 @@ angular.module('app', ['flowChart', ])
 	//var floorplanDataModel
 
 	var chartDataModel = {
-    "nodes": [
+    //"nodes": [
         /*{
             "id": "boothunnamed",
             "x": 0,
@@ -100,8 +103,8 @@ angular.module('app', ['flowChart', ])
             "x": 250,
             "y": 135
         }*/
-    ],
-    "connections": []
+   // ],
+   // "connections": []
 };
 
     
@@ -590,4 +593,26 @@ var companyNameIDs = [ //compNameIds = [
 	//
 	$scope.chartViewModel = new flowchart.ChartViewModel(chartDataModel);
 }])
-;
+//;
+
+
+
+
+//var app = angular.module('plunker', []);
+
+//app
+.directive('ngXlinkHref', function () {
+  return {
+    priority: 99,
+    restrict: 'A',
+    link: function (scope, element, attr) {
+      var attrName = 'xlink:href';
+      attr.$observe('ngXlinkHref', function (value) {
+        if (!value)
+          return;
+
+        attr.$set(attrName, value);
+      });
+    }
+  };
+});

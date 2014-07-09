@@ -139,8 +139,15 @@ THIS IS NOW BEING CALLED BUT IT DOESNT THINK IT IS DEFINED
       {{node.name()}}
     </text>
 
-    <image class="compLogo" x="2" y="2" width="20" height="20"
-     xlink:href="http://lizzb.github.io/399/app/img/logos/3m-square.png" />
+    <!--image class="compLogo" x="2" y="2" width="20" height="20"
+    xlink:href="http://lizzb.github.io/399/app/img/logos/3m-square.png"
+    ng-xlink-href="http://lizzb.github.io/399/app/img/logos/{{node.name()}}-square.png" /-->
+
+    <!--svg id="viewport" class="viewport" width="100%" height="100%" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"-->
+    <!--image x="5" y="5" width="30" height="30" ng-xlink-href="http://lizzb.github.io/399/app/img/logos/{{node.name()}}-square.png" xlink:href="http://placehold.it/30x30" /-->
+    <image x="0" y="0" width="20" height="20" ng-xlink-href="http://lizzb.github.io/399/app/img/logos/{{node.name()}}-square.png" xlink:href="" />
+
+   
 
     <g
       ng-repeat="connector in node.inputConnectors"
