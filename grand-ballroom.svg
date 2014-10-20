@@ -1,0 +1,293 @@
+<svg 
+xmlns="http://www.w3.org/2000/svg" 
+xmlns:xlink="http://www.w3.org/1999/xlink"
+preserveAspectRatio="xMidYMid meet"
+viewBox="100 0 1200 1200">
+
+<g>
+<title> Hilton Orrington Grand Ballroom </title>
+
+<g>
+  <title>Room outline</title>
+  <path class="room"  
+        d="
+        M 200,10
+        l 1040,0
+        l 0,900
+        l -855,0
+        l -72, -35
+        l -48, 100
+        l -135, -75
+        l 65, -105
+        l 0,-785
+        z" 
+  />
+</g>
+
+<g transform="translate(215, 850)" \>
+<g transform="rotate(30,0,0)">
+    <text class="bNum" x="30" y="30"> Entrance </text>
+  </g>
+</g>
+
+
+ <g>
+  <title> Booths </title>
+
+<g transform="translate(1175, 35)" \>
+<g transform="rotate(45,0,0)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 13 </text>
+  </g>
+</g>
+
+
+<g transform="translate(225, 110)" \>
+<g transform="rotate(-45,0,0)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 5 - boeing </text>
+  </g>
+</g>
+
+  <g transform="translate(240, 200)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 4 </text>
+  </g>
+  <g transform="translate(240, 360)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 3 </text>
+  </g>
+
+  <g transform="translate(240, 520)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 2 </text>
+  </g>
+
+  <g transform="translate(240, 680)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 1 </text>
+  </g>
+<g transform="translate(345, 30)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 6 </text>
+  </g>
+<g transform="translate(460, 30)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 7 </text>
+  </g>
+  <g transform="translate(575, 30)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 8 </text>
+  </g>
+  <g transform="translate(690, 30)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 9 </text>
+  </g>
+  <g transform="translate(805, 30)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 10 </text>
+  </g>
+  <g transform="translate(920, 30)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 11 </text>
+  </g>
+  <g transform="translate(1035, 30)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 12 </text>
+  </g>
+  <g transform="translate(1150, 145)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 14 </text>
+  </g>
+  <g transform="translate(1150, 240)"> <!-- was 1150 220 -->
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 15 </text>
+  </g>
+  <g transform="translate(1150, 375)"> <!-- was 1150 335 -->
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 16 </text>
+  </g>
+  <g transform="translate(1150, 470)"> <!-- was 1150 450 -->
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 17 </text>
+  </g>
+  <g transform="translate(1150, 565)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 18 </text>
+  </g>
+  <g transform="translate(1150, 670)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 19 </text>
+  </g>
+  <g transform="translate(1150, 785)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 20 </text>
+  </g>
+  <g transform="translate(1040, 785)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> nada </text>
+  </g>
+  <g transform="translate(930, 785)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 21 </text>
+  </g>
+  <g transform="translate(820, 785)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 22 </text>
+  </g>
+  <g transform="translate(710, 785)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 23 </text>
+  </g>
+  <g transform="translate(600, 785)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 24 </text>
+  </g>
+  <g transform="translate(460, 185)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 25 </text>
+  </g>
+  <g transform="translate(575, 185)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 26 </text>
+  </g>
+  <g transform="translate(690, 185)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 27 </text>
+  </g>
+  <g transform="translate(805, 185)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 28 </text>
+  </g>
+  <g transform="translate(920, 185)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 29 </text>
+  </g>
+  <g transform="translate(1035, 185)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 30 </text>
+  </g>
+  <g transform="translate(460, 260)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 36 </text>
+  </g>
+  <g transform="translate(575, 260)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 35 </text>
+  </g>
+  <g transform="translate(690, 260)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 34 </text>
+  </g>
+  <g transform="translate(805, 260)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 33 </text>
+  </g>
+  <g transform="translate(920, 260)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 32 </text>
+  </g>
+  <g transform="translate(1035, 260)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 31 </text>
+  </g>
+  <g transform="translate(460, 385)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 37 </text>
+  </g>
+  <g transform="translate(575, 385)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 38 </text>
+  </g>
+  <g transform="translate(690, 385)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 39 </text>
+  </g>
+  <g transform="translate(805, 385)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 40 </text>
+  </g>
+  <g transform="translate(920, 385)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 41 </text>
+  </g>
+  <g transform="translate(1035, 385)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 42 </text>
+  </g>
+    <g transform="translate(460, 460)">
+    <rect class="pillar" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> Pillar </text>
+  </g>
+  <g transform="translate(575, 460)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 47 </text>
+  </g>
+  <g transform="translate(690, 460)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 46 </text>
+  </g>
+  <g transform="translate(805, 460)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 45 </text>
+  </g>
+  <g transform="translate(920, 460)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 44 </text>
+  </g>
+  <g transform="translate(1035, 460)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 43 </text>
+  </g>
+  <g transform="translate(575, 585)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 48 </text>
+  </g>
+  <g transform="translate(690, 585)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 49 </text>
+  </g>
+  <g transform="translate(805, 585)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 50 </text>
+  </g>
+  <g transform="translate(920, 585)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 51 </text>
+  </g>
+  <g transform="translate(1035, 585)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 52 </text>
+  </g>
+    <g transform="translate(460, 660)">
+    <rect class="pillar" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> x </text>
+  </g>
+  <g transform="translate(575, 660)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 57 </text>
+  </g>
+  <g transform="translate(690, 660)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 56 </text>
+  </g>
+  <g transform="translate(805, 660)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 55 </text>
+  </g>
+  <g transform="translate(920, 660)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 54 </text>
+  </g>
+  <g transform="translate(1035, 660)">
+    <rect class="booth" x="0" y="0" width="60" height="60"></rect>
+    <text class="bNum" x="30" y="30"> 53 </text>
+  </g>
+
+ </g> <!-- /booths -->
+
+
+</g> <!-- /room -->
+
+
+</svg>

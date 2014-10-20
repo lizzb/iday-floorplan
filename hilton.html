@@ -1,0 +1,601 @@
+<html>
+	<head>
+		<title>AngularJS-FloorPlan</title>
+		<!-- 
+		LiveReload support.
+		http://livereload.com/
+		-->
+		<!--script src="http://localhost:35729/livereload.js?snipver=1"></script-->
+
+<style>
+
+
+</style>
+
+
+
+	</head>	
+	<body 
+		ng-app="app" 
+		ng-controller="AppCtrl"
+		mouse-capture
+		ng-keydown="keyDown($event)"
+		ng-keyup="keyUp($event)"
+		>
+
+		<div class="container">
+
+		    <div id="json-textarea"> 
+				<textarea chart-json-edit view-model="chartViewModel"></textarea>
+			</div>
+
+			<div id="flowchart-controls">
+		    <em> Hold control key to select multiple, or drag select around elements </em>
+
+		    <br>
+
+		    <button ng-click="addBoothsFromList()"
+    				title="">
+    				<br>Add Booths from list<br>of company name IDs<br><br>
+			</button>
+
+
+
+			<button ng-click="clearAll()"
+    				title="Clear all booths on chart">
+    				<br><br> Clear all booths <br><br>
+				</button>
+
+				<!-- This custom element defines the flowchart. -->
+			    <flow-chart chart="chartViewModel">
+			   
+<style>
+body {
+  margin: auto;
+  padding: 20px;
+}
+
+.room {
+  stroke: #0000ff;
+  fill:none;
+  stroke-width: 3;
+
+}
+.booth {
+  stroke: #33ff33;
+  stroke-width: 2;
+  fill: none;
+}
+
+.bNum {
+font-size: 24px;
+display: block;
+color: black;
+text-anchor: middle;
+alignment-baseline: middle;
+}
+
+</style>
+
+
+<h2> Hilton Orrington Heritage Room </h2>
+<div style="background-color: #dddddd">
+
+<!--svg 
+xmlns="http://www.w3.org/2000/svg" 
+xmlns:xlink="http://www.w3.org/1999/xlink"
+preserveAspectRatio="xMidYMid meet"
+viewBox="-100 -10 1300 850"> </svg-->
+</div>
+
+
+
+
+
+
+
+
+
+
+<h2> Hilton Orrington Grand Ballroom </h2>
+<div style="background-color: #dddddd">
+<!--svg 
+xmlns="http://www.w3.org/2000/svg" 
+xmlns:xlink="http://www.w3.org/1999/xlink"
+preserveAspectRatio="xMidYMid meet"
+viewBox="100 0 1200 1200"></svg-->
+
+</div>
+
+
+
+</body>
+</html>
+
+</flow-chart>
+
+		    </div>
+		</div>
+
+		<link rel="stylesheet" type="text/css" href="app.css">
+
+		<!-- Library code. -->
+		<script src="lib/jquery-2.0.2.js"></script>
+		<script src="lib/angular.js"></script>
+
+		<!-- Flowchart code. -->
+		<!--script src="debug.js"></script-->
+		<script src="flowchart/svg_class.js"></script>
+		<script src="flowchart/mouse_capture_service.js"></script>
+		<script src="flowchart/dragging_service.js"></script>
+		<script src="flowchart/flowchart_viewmodel.js"></script>
+		<script src="flowchart/flowchart_directive.js"></script>
+
+		<!-- App code. -->
+		<script src="app.js"></script>
+
+		<script>
+chartDataModel = {
+   
+    "nodes": [
+        {
+            "name": "fenwal",
+            "id": "booth1",
+            "x": -122.82878875732422,
+            "y": 8.684865951538086
+        },
+        {
+            "name": "carsdotcom",
+            "id": "booth2",
+            "x": 2.1712112426757812,
+            "y": 8.684865951538086
+        },
+        {
+            "name": "fti",
+            "id": "booth3",
+            "x": 127.17121124267578,
+            "y": 8.684865951538086
+        },
+        {
+            "name": "bemis",
+            "id": "booth4",
+            "x": 252.17121124267578,
+            "y": 8.684865951538086
+        },
+        {
+            "name": "epic",
+            "id": "booth5",
+            "x": 377.1712112426758,
+            "y": 8.684865951538086
+        },
+        {
+            "name": "mathworks",
+            "id": "booth6",
+            "x": -122.82878875732422,
+            "y": 53.684865951538086
+        },
+        {
+            "name": "boeing",
+            "id": "booth7",
+            "x": 2.1712112426757812,
+            "y": 53.684865951538086
+        },
+        {
+            "name": "kiewit",
+            "id": "booth8",
+            "x": 127.17121124267578,
+            "y": 53.684865951538086
+        },
+        {
+            "name": "alcatel-lucent",
+            "id": "booth9",
+            "x": 252.17121124267578,
+            "y": 53.684865951538086
+        },
+        {
+            "name": "imc",
+            "id": "booth10",
+            "x": 377.1712112426758,
+            "y": 53.684865951538086
+        },
+        {
+            "name": "mwrdgc",
+            "id": "booth11",
+            "x": -122.82878875732422,
+            "y": 98.68486595153809
+        },
+        {
+            "name": "cme-group",
+            "id": "booth12",
+            "x": 2.1712112426757812,
+            "y": 98.68486595153809
+        },
+        {
+            "name": "pratt-whitney",
+            "id": "booth13",
+            "x": 127.17121124267578,
+            "y": 98.68486595153809
+        },
+        {
+            "name": "gtl",
+            "id": "booth14",
+            "x": 252.17121124267578,
+            "y": 98.68486595153809
+        },
+        {
+            "name": "pwc",
+            "id": "booth15",
+            "x": 377.1712112426758,
+            "y": 98.68486595153809
+        },
+        {
+            "name": "itw",
+            "id": "booth16",
+            "x": -122.82878875732422,
+            "y": 143.6848659515381
+        },
+        {
+            "name": "trading-tech",
+            "id": "booth17",
+            "x": 2.1712112426757812,
+            "y": 143.6848659515381
+        },
+        {
+            "name": "sbb",
+            "id": "booth18",
+            "x": 127.17121124267578,
+            "y": 143.6848659515381
+        },
+        {
+            "name": "outerwall",
+            "id": "booth19",
+            "x": 252.17121124267578,
+            "y": 143.6848659515381
+        },
+        {
+            "name": "com-ed",
+            "id": "booth20",
+            "x": 377.1712112426758,
+            "y": 143.6848659515381
+        },
+        {
+            "name": "chopper-trading",
+            "id": "booth21",
+            "x": -122.82878875732422,
+            "y": 188.6848659515381
+        },
+        {
+            "name": "citadel",
+            "id": "booth22",
+            "x": 2.1712112426757812,
+            "y": 188.6848659515381
+        },
+        {
+            "name": "clarity",
+            "id": "booth23",
+            "x": 127.17121124267578,
+            "y": 188.6848659515381
+        },
+        {
+            "name": "yahoo",
+            "id": "booth24",
+            "x": 252.17121124267578,
+            "y": 188.6848659515381
+        },
+        {
+            "name": "gdeb",
+            "id": "booth25",
+            "x": 377.1712112426758,
+            "y": 188.6848659515381
+        },
+        {
+            "name": "wolverine-trading",
+            "id": "booth26",
+            "x": -122.82878875732422,
+            "y": 233.6848659515381
+        },
+        {
+            "name": "mta",
+            "id": "booth27",
+            "x": 2.1712112426757812,
+            "y": 233.6848659515381
+        },
+        {
+            "name": "mbhb-llc",
+            "id": "booth28",
+            "x": 127.17121124267578,
+            "y": 233.6848659515381
+        },
+        {
+            "name": "think-big",
+            "id": "booth29",
+            "x": 252.17121124267578,
+            "y": 233.6848659515381
+        },
+        {
+            "name": "here-nokia",
+            "id": "booth30",
+            "x": 377.1712112426758,
+            "y": 233.6848659515381
+        },
+        {
+            "name": "etherios",
+            "id": "booth31",
+            "x": -122.82878875732422,
+            "y": 278.6848659515381
+        },
+        {
+            "name": "lend-lease",
+            "id": "booth32",
+            "x": 2.1712112426757812,
+            "y": 278.6848659515381
+        },
+        {
+            "name": "schneider-electric",
+            "id": "booth33",
+            "x": 127.17121124267578,
+            "y": 278.6848659515381
+        },
+        {
+            "name": "zebra-tech",
+            "id": "booth34",
+            "x": 252.17121124267578,
+            "y": 278.6848659515381
+        },
+        {
+            "name": "ucc",
+            "id": "booth35",
+            "x": 377.1712112426758,
+            "y": 278.6848659515381
+        },
+        {
+            "name": "northwestern-mutual",
+            "id": "booth36",
+            "x": -122.82878875732422,
+            "y": 323.6848659515381
+        },
+        {
+            "name": "idot",
+            "id": "booth37",
+            "x": 2.1712112426757812,
+            "y": 323.6848659515381
+        },
+        {
+            "name": "pariveda",
+            "id": "booth38",
+            "x": 127.17121124267578,
+            "y": 323.6848659515381
+        },
+        {
+            "name": "continental",
+            "id": "booth39",
+            "x": 252.17121124267578,
+            "y": 323.6848659515381
+        },
+        {
+            "name": "zs-associates",
+            "id": "booth40",
+            "x": 377.1712112426758,
+            "y": 323.6848659515381
+        },
+        {
+            "name": "ida",
+            "id": "booth41",
+            "x": -122.82878875732422,
+            "y": 368.6848659515381
+        },
+        {
+            "name": "factset",
+            "id": "booth42",
+            "x": 2.1712112426757812,
+            "y": 368.6848659515381
+        },
+        {
+            "name": "altec",
+            "id": "booth43",
+            "x": 127.17121124267578,
+            "y": 368.6848659515381
+        },
+        {
+            "name": "chrylser-group",
+            "id": "booth44",
+            "x": 252.17121124267578,
+            "y": 368.6848659515381
+        },
+        {
+            "name": "adage-tech",
+            "id": "booth45",
+            "x": 377.1712112426758,
+            "y": 368.6848659515381
+        },
+        {
+            "name": "denso",
+            "id": "booth46",
+            "x": -122.82878875732422,
+            "y": 413.6848659515381
+        },
+        {
+            "name": "environ",
+            "id": "booth47",
+            "x": 2.1712112426757812,
+            "y": 413.6848659515381
+        },
+        {
+            "name": "ama",
+            "id": "booth48",
+            "x": 127.17121124267578,
+            "y": 413.6848659515381
+        },
+        {
+            "name": "wrigley",
+            "id": "booth49",
+            "x": 252.17121124267578,
+            "y": 413.6848659515381
+        },
+        {
+            "name": "sapient-nitro",
+            "id": "booth50",
+            "x": 377.1712112426758,
+            "y": 413.6848659515381
+        },
+        {
+            "name": "hfz-llc",
+            "id": "booth51",
+            "x": -122.82878875732422,
+            "y": 458.6848659515381
+        },
+        {
+            "name": "avantcredit",
+            "id": "booth52",
+            "x": 2.1712112426757812,
+            "y": 458.6848659515381
+        },
+        {
+            "name": "spacex",
+            "id": "booth53",
+            "x": 127.17121124267578,
+            "y": 458.6848659515381
+        },
+        {
+            "name": "dmc-inc",
+            "id": "booth54",
+            "x": 252.17121124267578,
+            "y": 458.6848659515381
+        },
+        {
+            "name": "pepsico",
+            "id": "booth55",
+            "x": 377.1712112426758,
+            "y": 458.6848659515381
+        },
+        {
+            "name": "wms",
+            "id": "booth56",
+            "x": -122.82878875732422,
+            "y": 503.6848659515381
+        },
+        {
+            "name": "nielsen",
+            "id": "booth57",
+            "x": 2.1712112426757812,
+            "y": 503.6848659515381
+        },
+        {
+            "name": "dropbox",
+            "id": "booth58",
+            "x": 127.17121124267578,
+            "y": 503.6848659515381
+        },
+        {
+            "name": "thoughtworks",
+            "id": "booth59",
+            "x": 252.17121124267578,
+            "y": 503.6848659515381
+        },
+        {
+            "name": "allstate",
+            "id": "booth60",
+            "x": 377.1712112426758,
+            "y": 503.6848659515381
+        },
+        {
+            "name": "deloitte",
+            "id": "booth61",
+            "x": -122.82878875732422,
+            "y": 548.6848659515381
+        },
+        {
+            "name": "oracle",
+            "id": "booth62",
+            "x": 2.1712112426757812,
+            "y": 548.6848659515381
+        },
+        {
+            "name": "ge",
+            "id": "booth63",
+            "x": 127.17121124267578,
+            "y": 548.6848659515381
+        },
+        {
+            "name": "mozilla",
+            "id": "booth64",
+            "x": 252.17121124267578,
+            "y": 548.6848659515381
+        },
+        {
+            "name": "tata",
+            "id": "booth65",
+            "x": 377.1712112426758,
+            "y": 548.6848659515381
+        },
+        {
+            "name": "hospira",
+            "id": "booth66",
+            "x": -122.82878875732422,
+            "y": 593.6848659515381
+        },
+        {
+            "name": "pec",
+            "id": "booth67",
+            "x": 2.1712112426757812,
+            "y": 593.6848659515381
+        },
+        {
+            "name": "readyforce",
+            "id": "booth68",
+            "x": 127.17121124267578,
+            "y": 593.6848659515381
+        },
+        {
+            "name": "accenture",
+            "id": "booth69",
+            "x": 252.17121124267578,
+            "y": 593.6848659515381
+        },
+        {
+            "name": "shmoop",
+            "id": "booth70",
+            "x": 377.1712112426758,
+            "y": 593.6848659515381
+        },
+        {
+            "name": "ford",
+            "id": "booth71",
+            "x": -122.82878875732422,
+            "y": 638.6848659515381
+        },
+        {
+            "name": "united-airlines",
+            "id": "booth72",
+            "x": 2.1712112426757812,
+            "y": 638.6848659515381
+        },
+        {
+            "name": "goodyear",
+            "id": "booth73",
+            "x": 127.17121124267578,
+            "y": 638.6848659515381
+        },
+        {
+            "name": "at-t",
+            "id": "booth74",
+            "x": 252.17121124267578,
+            "y": 638.6848659515381
+        },
+        {
+            "name": "s-c-electric",
+            "id": "booth75",
+            "x": 377.1712112426758,
+            "y": 638.6848659515381
+        },
+        {
+            "name": "exxon-mobil",
+            "id": "booth76",
+            "x": -122.82878875732422,
+            "y": 683.6848659515381
+        }
+    ]
+};
+</script>
+	</body>
+</html>
